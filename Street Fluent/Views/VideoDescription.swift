@@ -1,18 +1,20 @@
-//
-//  VideoDescription.swift
-//  Street Fluent
-//
-//  Created by Naima Khan on 15/02/2026.
-//
-
 import SwiftUI
 
 struct VideoDescription: View {
+    let video: Video
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            // Navigation - back button + writing mode icon
+            Text("Video Description")
+            // Video player
+            
+            // Video description
+            
+        }
     }
 }
 
 #Preview {
-    VideoDescription()
+    VideoDescription(video: SampleData.videos[0])
 }

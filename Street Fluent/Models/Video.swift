@@ -15,37 +15,14 @@ struct Video: Identifiable, Codable {
     let isFeatured: Bool            // Show on home screen
     let dateAdded: Date
     
+    var formattedDuration: String{
+        let minutes = Int(duration) / 60
+        let seconds = Int(duration) % 60
+        return String(format: "%d:%02d", minutes, seconds)
+        
+    }
+    
     var fullTranscript: String { // for vid description view
         dialogues.map { $0.originalText }.joined(separator: "\n")
     }
-}
-
-enum TargetLanguage: String, Identifiable, CaseIterable, Codable{
-    
-    var id: String {rawValue}  // uses rawValues "zh" "beginner' as identity
-    
-    case chinese = "zh"
-//    case english = "en"
-//    case arabic = "ar"
-//    case japanese = "jp"
-    
-    // i want ghost guide to always be available as an optional button feature for the users, regardless of the language..
-    
-}
-
-
-enum ProficiencyLevel: String, Identifiable, CaseIterable, Codable{
-    
-    var id: String {rawValue}
-    
-    case beginner = "beginner"
-    case elementary = "elementary"
-    case intermediate = "intermediate"
-    case advanced = "advanced"
-
-}
-
-enum LearningMode: String, Codable { //enum allows state toggle, better than collection
-    case speaking
-    case writing
 }
