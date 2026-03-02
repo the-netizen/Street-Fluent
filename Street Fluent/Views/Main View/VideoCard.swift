@@ -46,17 +46,15 @@ struct VideoCard: View {
                                 .foregroundColor(.gray.opacity(0.5))
                         }
                     
-                    // Level badge - conditional based on showLevelBadge
+                    // Level badge - conditional
                     if showLevelBadge {
                         Text(video.level.displayName)
                             .font(.caption2)
                             .fontWeight(.bold)
                             .foregroundColor(.tangerine)
                             .padding(.horizontal, 6)
-                            .padding(.vertical, 4)
-                            .background(Color.mute.opacity(0.35))
+                            .padding(.vertical, 6)
                             .cornerRadius(4)
-//                            .padding(2)
                     }
                 }
                 
@@ -84,9 +82,14 @@ struct VideoCard: View {
         }
         .padding(8)
         .background(Color(.white).opacity(0.8))
-        .border(Color.black, width: 2)
+//        .border(Color.black, width: 2)
         .cornerRadius(10)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(.primary, lineWidth: 1)
+        )
     }
+    
     
 }
 

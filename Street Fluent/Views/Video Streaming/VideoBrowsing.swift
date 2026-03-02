@@ -2,7 +2,9 @@ import SwiftUI
 
 struct VideoBrowsing: View {
     @State private var selectedLevel: ProficiencyLevel? = nil
-    @Environment(\.dismiss) private var dismiss
+    @State private var selectedVideo: Video? = nil
+    @State private var showStreaming = false
+//    @Environment(\.dismiss) private var dismiss
     
     var filteredVideos: [Video] {
         SampleData.videos(for: selectedLevel)
@@ -23,20 +25,30 @@ struct VideoBrowsing: View {
                 
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(filteredVideos) { video in
-                        NavigationLink(destination: VideoDescription(video: video)) {
+                        NavigationLink(destination: VideoStreaming()) {
                             VideoCard(video: video, style: .grid, showLevelBadge: selectedLevel == nil)
+                                .onTapGesture {
+                                    selectedVideo = video
+                                }
                         }
-                        .buttonStyle(.plain)
+//                        .buttonStyle(.plain)
                     }
                 }
                 .padding(.horizontal)
             }
             .padding(.vertical, 20)
         }
-        .background(Color.mute)
-        .navigationTitle("Content")
+        .background(Color.bg)
+        .navigationTitle("Video Browsing")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(false)
+        .sheet(item: $selectedVideo) { video in
+            VideoDescriptionSheet(video: video, startStreaming: $showStreaming)
+                .presentationDetents([.medium, .large])
+        }
+        .navigationDestination(isPresented: $showStreaming) {
+            VideoStreaming()
+        }
     }
 }
 
@@ -64,8 +76,8 @@ struct FilterView: View {
                         selectedLevel = level
                     }
                 }
-            }
-        }
+            }//h
+        }//scroll
     }
 }
 
