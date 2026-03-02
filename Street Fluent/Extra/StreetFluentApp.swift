@@ -5,7 +5,9 @@ import SwiftData
 struct StreetFluentApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+//            MainView(selectedDate: Date())
+            AppTabView()
         }
     }
 }
+
