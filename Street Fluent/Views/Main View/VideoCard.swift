@@ -33,42 +33,8 @@ struct VideoCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             // Thumbnail
-            ZStack(alignment: .bottomTrailing) {
-                ZStack(alignment: .topTrailing) {
-                    RoundedRectangle(cornerRadius: 8)
-                        .fill(Color.gray.opacity(0.2))
-                        .aspectRatio(16/9, contentMode: .fit)
-                        .frame(width: style == .horizontal ? 120 : nil, 
-                               height: style == .horizontal ? 80 : nil)
-                        .overlay {
-                            Image(systemName: "play.fill")
-                                .font(.title3)
-                                .foregroundColor(.gray.opacity(0.5))
-                        }
-                    
-                    // Level badge - conditional
-                    if showLevelBadge {
-                        Text(video.level.displayName)
-                            .font(.caption2)
-                            .fontWeight(.bold)
-                            .foregroundColor(.tangerine)
-                            .padding(.horizontal, 6)
-                            .padding(.vertical, 6)
-                            .cornerRadius(4)
-                    }
-                }
-                
-                // Duration
-                Text(video.formattedDuration)
-                    .font(.caption2)
-                    .fontWeight(.medium)
-                    .padding(.horizontal, 6)
-                    .padding(.vertical, 3)
-                    .foregroundStyle(Color(.black))
-                    .cornerRadius(4)
-                    .padding(6)
-            }
-            
+            thumbnailView
+
             // Title
             Text(video.title)
                 .font(.caption)
@@ -80,9 +46,8 @@ struct VideoCard: View {
                     alignment: .leading
                 )
         }
-        .padding(8)
+        .padding(6)
         .background(Color(.white).opacity(0.8))
-//        .border(Color.black, width: 2)
         .cornerRadius(10)
         .overlay(
             RoundedRectangle(cornerRadius: 10)
@@ -90,6 +55,55 @@ struct VideoCard: View {
         )
     }
     
+    // MARK: - Thumbnail View
+    var thumbnailView: some View {
+        ZStack(alignment: .bottomTrailing) {
+            ZStack(alignment: .topTrailing) {
+                Group {
+                    if let uiImage = UIImage(named: video.thumbnailURL) {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .aspectRatio(16/9, contentMode: .fill)
+                    } else {
+                        Rectangle()
+                            .fill(Color.gray.opacity(0.2))
+                            .overlay {
+                                Image(systemName: "play.fill")
+                                    .font(style == .grid ? .title : .title3)
+                                    .foregroundColor(.gray.opacity(0.5))
+                            }
+                    }
+                }
+                .aspectRatio(16/9, contentMode: .fit)
+                .frame(width: style == .horizontal ? 120 : nil,
+                       height: style == .horizontal ? 80 : nil)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+                
+                if showLevelBadge {
+                    Text(video.level.displayName)
+                        .font(.caption2)
+                        .fontWeight(.heavy)
+                        .foregroundColor(.tangerine)
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 4)
+                    
+                    
+                }
+            }
+            
+            Text(video.formattedDuration)
+                .font(.caption2)
+                .fontWeight(.bold)
+                .padding(.vertical, 3)
+                .foregroundColor(.white)
+                .padding(.horizontal, 6)
+                .background(
+                    RoundedRectangle(cornerRadius: 5)
+                        .fill(.black.opacity(0.5))
+                )
+                .padding(.bottom, 6)
+        }//z
+    }//thumbnailView
     
 }
 

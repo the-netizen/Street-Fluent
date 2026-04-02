@@ -53,6 +53,18 @@ enum SampleData {
                 Vocabulary(id: UUID(), word: "有名", pinyin: "yǒumíng", meaning: "famous", level: .beginner),
             ]
         ),
+        Dialogue(
+            id: UUID(), index: 4,
+            startTime: 12.5, endTime: 19,
+            originalText: "这家 店 非常 有名",
+            translatedText: "This restaurant is very famous",
+            words: [
+                Vocabulary(id: UUID(), word: "这家", pinyin: "zhè jiā", meaning: "this (shop/restaurant)", level: .beginner),
+                Vocabulary(id: UUID(), word: "店", pinyin: "diàn", meaning: "shop; store", level: .beginner),
+                Vocabulary(id: UUID(), word: "非常", pinyin: "fēicháng", meaning: "very; extremely", level: .beginner),
+                Vocabulary(id: UUID(), word: "有名", pinyin: "yǒumíng", meaning: "famous", level: .beginner),
+            ]
+        ),
     ]
     
     // MARK: - Dialogues for Video 2 (Daily Routine)
@@ -95,24 +107,19 @@ enum SampleData {
             ]
         ),
     ]
-    
-    // MARK: - All Videos
-    // videoURL uses local bundle file names. Add your .mp4 files to Xcode project.
-    // For videos without local files, videoURL is empty — they'll show in browsing but can't stream yet.
-    
+ 
     static let videos: [Video] = [
-        // === FEATURED (shown on home) ===
         Video(
             id: UUID(), title: "新年快乐",
             description: "Message to a friend for new years.",
-            thumbnailURL: "Sample-video-1.jpg.avif", videoURL: "Sample-video-1.mov",
+            thumbnailURL: "Sample-image-1.avif", videoURL: "Sample-video-1",
             duration: 19, language: .chinese, level: .beginner,
             dialogues: messageDialogue,
             isFeatured: true, dateAdded: Date()
         ),
         Video(
             id: UUID(), title: "poem",
-            description: "A Chinese poem", thumbnailURL: "Sample-video-2.jpg", videoURL: "Sample-video-2.mov",
+            description: "A Chinese poem", thumbnailURL: "Sample-image-2.jpg", videoURL: "Sample-video-2",
             duration: 16, language: .chinese, level: .beginner,
             dialogues: poemDialogue,
             isFeatured: true, dateAdded: Calendar.current.date(byAdding: .day, value: -2, to: Date())!
@@ -120,7 +127,7 @@ enum SampleData {
         Video(
             id: UUID(), title: "上海一日游 Vlog",
             description: "A day in Shanghai — from the Bund to the Old Town. Great for travel vocabulary.",
-            thumbnailURL: "shanghai_vlog", videoURL: "",
+            thumbnailURL: "Sample-image-3.png", videoURL: "",
             duration: 243, language: .chinese, level: .beginner,
             dialogues: [], isFeatured: true,
             dateAdded: Calendar.current.date(byAdding: .day, value: -5, to: Date())!
@@ -130,7 +137,7 @@ enum SampleData {
         Video(
             id: UUID(), title: "和朋友去超市",
             description: "Going to the supermarket with friends. Learn shopping vocabulary and measure words.",
-            thumbnailURL: "supermarket", videoURL: "",
+            thumbnailURL: "Sample-image-4.jpeg", videoURL: "",
             duration: 198, language: .chinese, level: .elementary,
             dialogues: [], isFeatured: false,
             dateAdded: Calendar.current.date(byAdding: .day, value: -8, to: Date())!
@@ -138,7 +145,7 @@ enum SampleData {
         Video(
             id: UUID(), title: "坐地铁去学校",
             description: "Taking the subway to school. Directions, transportation words, and casual speech.",
-            thumbnailURL: "subway", videoURL: "",
+            thumbnailURL: "Sample-image-5.avif", videoURL: "",
             duration: 167, language: .chinese, level: .elementary,
             dialogues: [], isFeatured: false,
             dateAdded: Calendar.current.date(byAdding: .day, value: -10, to: Date())!
@@ -148,7 +155,7 @@ enum SampleData {
         Video(
             id: UUID(), title: "和朋友去火锅店",
             description: "Friends at a hotpot restaurant. Slang, jokes, and real conversational Mandarin.",
-            thumbnailURL: "hotpot", videoURL: "",
+            thumbnailURL: "Sample-image-6.jpg", videoURL: "",
             duration: 428, language: .chinese, level: .intermediate,
             dialogues: [], isFeatured: false,
             dateAdded: Calendar.current.date(byAdding: .day, value: -12, to: Date())!
@@ -156,7 +163,7 @@ enum SampleData {
         Video(
             id: UUID(), title: "租房子的经历",
             description: "Apartment hunting in China. Useful vocabulary for housing, contracts, and negotiation.",
-            thumbnailURL: "apartment", videoURL: "",
+            thumbnailURL: "Sample-image-7.jpg", videoURL: "",
             duration: 315, language: .chinese, level: .intermediate,
             dialogues: [], isFeatured: false,
             dateAdded: Calendar.current.date(byAdding: .day, value: -15, to: Date())!
@@ -166,7 +173,7 @@ enum SampleData {
         Video(
             id: UUID(), title: "深圳科技公司面试",
             description: "A mock tech interview in Mandarin. Formal vocabulary and professional expressions.",
-            thumbnailURL: "tech_interview", videoURL: "",
+            thumbnailURL: "Sample-image-8.webp", videoURL: "",
             duration: 540, language: .chinese, level: .advanced,
             dialogues: [], isFeatured: false,
             dateAdded: Calendar.current.date(byAdding: .day, value: -18, to: Date())!
@@ -174,7 +181,7 @@ enum SampleData {
         Video(
             id: UUID(), title: "故宫历史讲解",
             description: "Guided tour of the Forbidden City. Rich historical vocabulary and formal narration.",
-            thumbnailURL: "forbidden_city", videoURL: "",
+            thumbnailURL: "Sample-image-9.jpeg", videoURL: "",
             duration: 390, language: .chinese, level: .advanced,
             dialogues: [], isFeatured: false,
             dateAdded: Calendar.current.date(byAdding: .day, value: -22, to: Date())!

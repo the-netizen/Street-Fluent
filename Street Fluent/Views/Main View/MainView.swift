@@ -9,22 +9,6 @@ struct MainView: View {
                 VStack(spacing: 15){
                     Spacer()
                     
-                    //Logo image
-//                    HStack{
-//                        ZStack{
-//                            RoundedRectangle(cornerRadius: 10)
-//                                .frame(width: 45, height: 40)
-//                                .foregroundColor(.road)
-//                                
-//                            Text("SF")
-//                                .font(.title)
-//                                .foregroundColor(.white)
-//                        }
-//                        Spacer()
-//                    }
-//                    .padding(.leading, 20)
-                        
-                    
                     //WeeklyCalenderView
                     WeeklyCalendarView(selectedDate: $selectedDate)
                     
