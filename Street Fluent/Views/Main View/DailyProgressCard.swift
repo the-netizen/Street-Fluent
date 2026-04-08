@@ -3,14 +3,12 @@ import SwiftUI
 struct DailyProgressCard: View {
     
     let selectedDate: Date
-    
     private let calendar = Calendar.current
-    
     private var record: StudyRecord {
         SampleData.studyRecord(for: selectedDate) ?? StudyRecord(
             id: UUID(), date: selectedDate,
             minutesStudied: 0, wordsReviewed: 0, wordsLearned: 0, videosWatched: 0
-        )
+        )//sample data
     }
     
     private var isToday: Bool {
@@ -34,6 +32,7 @@ struct DailyProgressCard: View {
                 
                 Spacer()
                 
+                // gotta update this
                 if SampleData.currentStreak > 0 && isToday {
                     Label("\(SampleData.currentStreak)", systemImage: "flame.fill")
                         .font(.caption)
@@ -45,13 +44,13 @@ struct DailyProgressCard: View {
             // stat blocks
             VStack(spacing: 12) {
                 HStack(spacing: 12) {
-                    vocabStat(
+                    vocabStats(
                         value: record.wordsLearned,
                         label: "New words",
                         icon: "plus.circle.fill",
                         color: .tangerine
                     )
-                    vocabStat(
+                    vocabStats(
                         value: record.wordsReviewed,
                         label: "Reviewed",
                         icon: "arrow.triangle.2.circlepath",
@@ -59,13 +58,13 @@ struct DailyProgressCard: View {
                     )
                 }
                 HStack(spacing: 12) {
-                    vocabStat(
+                    vocabStats(
                         value: record.minutesStudied,
                         label: "minutes",
                         icon: "clock.fill",
                         color: .orange
                     )
-                    vocabStat(
+                    vocabStats(
                         value: record.videosWatched,
                         label: "Videos",
                         icon: "play.rectangle.fill",
@@ -84,8 +83,9 @@ struct DailyProgressCard: View {
         .padding(.horizontal, 16)
     }
         
-    private func vocabStat(value: Int, label: String, icon: String, color: Color) -> some View {
+    private func vocabStats(value: Int, label: String, icon: String, color: Color) -> some View {
         HStack(spacing: 10) {
+            //icon
             Image(systemName: icon)
                 .font(.title3)
                 .fontWeight(.bold)
@@ -94,7 +94,8 @@ struct DailyProgressCard: View {
             
             Spacer().frame(width: 30)
             
-            VStack(alignment: .center, spacing: 1) {
+            //stats info
+            VStack(alignment: .center) {
                 Text("\(value)")
                     .font(.title3)
                     .fontWeight(.bold)

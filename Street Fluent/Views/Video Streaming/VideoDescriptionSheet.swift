@@ -13,7 +13,7 @@ struct VideoDescriptionSheet: View {
                     .font(.title3)
                     .fontWeight(.bold)
                 Spacer()
-                // number of new words
+                // add number of new words later
                 Text(video.level.displayName)
                     .font(.caption)
                     .fontWeight(.medium)
@@ -32,15 +32,7 @@ struct VideoDescriptionSheet: View {
                         
                         HStack(alignment: .top) {
                             //video thumbnail
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(Color(.tertiarySystemGroupedBackground))
-                                .frame(width: 100, height: 70)
-                                .overlay {
-                                    Image(systemName: "play.fill") //video thumbnail
-                                        .foregroundStyle(.gray.opacity(0.4))
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.primary, lineWidth: 1)
-                                }
+                            VideoCard(video: video, style: .horizontal, showLevelBadge: false).thumbnailView
                             
                             Spacer().frame(width: 20)
                             
@@ -49,13 +41,10 @@ struct VideoDescriptionSheet: View {
                                 .font(.subheadline)
                                 .foregroundStyle(.secondary)
                                 .frame(maxWidth: .infinity, alignment: .leading)
-//                                .lineLimit(3)
                         }
                     }// description area
                     .frame(maxWidth: .infinity)
                     .padding(12)
-//                    .padding(.horizontal, 20)
-//                    .padding(.vertical, 10)
                     .background(Color(.systemBackground).opacity(0.2))
                     .cornerRadius(12)
                     .overlay{
@@ -63,6 +52,7 @@ struct VideoDescriptionSheet: View {
                             .stroke(.primary, lineWidth: 1)
                     }
                     
+                    //transcript
                     if !video.dialogues.isEmpty {
                         VStack(alignment: .leading, spacing: 10) {
                             Text("Transcript")
@@ -94,13 +84,12 @@ struct VideoDescriptionSheet: View {
                 .padding(.bottom, 80)
             }
             
-            // MARK: - Start Button (fixed bottom)
             VStack(spacing: 0) {
                 HStack {
                     Spacer()
                     Button {
-                        dismiss()
                         startStreaming = true
+                        dismiss()
                     } label: {
                         HStack(spacing: 4) {
                             Text("开始")

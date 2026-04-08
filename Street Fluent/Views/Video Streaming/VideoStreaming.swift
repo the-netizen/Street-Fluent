@@ -2,35 +2,42 @@
 import SwiftUI
 
 struct VideoStreaming: View {
+    let video: Video
+    @State private var viewModel: VideoViewModel
+    
+    init(video: Video) {
+        self.video = video
+        self._viewModel = State(initialValue: VideoViewModel(video: video))
+    }
+    
     var body: some View {
-
         VStack(spacing: 20) {
-            //video streaming area
-            VStack{
-                ZStack{
-                    //video
-                    //progress bar of video
+            VStack(spacing: 0) {
+                // video streaming area
+                VideoPlayerView(viewModel: viewModel)
+                
+                PracticeArea(viewModel: viewModel)
+                
+            }
+            .background(Color.bg)
+            .toolbar(.hidden, for: .tabBar)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    // tap to switch between speaking nd writing
+                    Button {
+                        viewModel.mode = (viewModel.mode == .speaking) ? .writing : .speaking
+                    } label: {
+                        // icon changes based on current mode
+                        Image(systemName: viewModel.mode == .speaking ? "pencil" : "mic.fill")
+                    }
                 }
-                
-                //interactive subtitles
-                
-                //translation
             }
-            
-            //practice area
-            VStack{
-                // controls -
-                // if speaking mode -> replay dialogue button and , skip dialogue button
-                // if writing mode -> toggle visibility (of writing help) button, skip dialogue button
-                
-                //learning area -
-                // if speaking mode -> show big mic button
-                // if writing mode -> show writing canvas
-            }
+            .onAppear { viewModel.setupPlayer() }
+            .onDisappear { viewModel.cleanup() } //wot?
         }
     }
 }
-
 #Preview {
-    VideoStreaming()
+    VideoStreaming(video: SampleData.videos[0])
 }

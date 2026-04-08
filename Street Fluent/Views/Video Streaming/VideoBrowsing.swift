@@ -3,6 +3,7 @@ import SwiftUI
 struct VideoBrowsing: View {
     @State private var selectedLevel: ProficiencyLevel? = nil
     @State private var selectedVideo: Video? = nil
+    @State private var videoToStream: Video? = nil
     @State private var showStreaming = false
 //    @Environment(\.dismiss) private var dismiss
     
@@ -25,13 +26,10 @@ struct VideoBrowsing: View {
                 
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(filteredVideos) { video in
-                        NavigationLink(destination: VideoStreaming()) {
-                            VideoCard(video: video, style: .grid, showLevelBadge: selectedLevel == nil)
-                                .onTapGesture {
-                                    selectedVideo = video
-                                }
-                        }
-//                        .buttonStyle(.plain)
+                        VideoCard(video: video, style: .grid, showLevelBadge: selectedLevel == nil)
+                            .onTapGesture {
+                                selectedVideo = video
+                            }
                     }
                 }
                 .padding(.horizontal)
@@ -41,13 +39,20 @@ struct VideoBrowsing: View {
         .background(Color.bg)
         .navigationTitle("Video Browsing")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(false)
+//        .navigationBarBackButtonHidden(false)
         .sheet(item: $selectedVideo) { video in
             VideoDescriptionSheet(video: video, startStreaming: $showStreaming)
                 .presentationDetents([.medium, .large])
+                .onDisappear {
+                    if showStreaming {
+                        videoToStream = video
+                    }
+                }
         }
         .navigationDestination(isPresented: $showStreaming) {
-            VideoStreaming()
+            if let video = videoToStream {
+                VideoStreaming(video: video)
+            }
         }
     }
 }

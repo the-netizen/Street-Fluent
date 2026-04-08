@@ -3,14 +3,14 @@ import SwiftUI
 struct FeaturedVideos: View {
     let featuredVideos: [Video] = SampleData.featuredVideos
     @State private var selectedVideo: Video? = nil
+    @State private var videoToStream: Video? = nil
     @State private var navigateToStreaming = false
     
     var body: some View {
-            VStack(spacing: .none){
+        VStack(spacing: .none){
                 HStack{
                     Text("Featured videos")
-                        .font(.title2)
-                        .fontWeight(.bold)
+                        .font(.headline)
                     Spacer()
 
                 }//header
@@ -41,9 +41,16 @@ struct FeaturedVideos: View {
             .sheet(item: $selectedVideo) { video in
                 VideoDescriptionSheet(video: video, startStreaming: $navigateToStreaming)
                     .presentationDetents([.medium, .large]) //allow dynamic sizes
+                    .onDisappear {
+                        if navigateToStreaming {
+                            videoToStream = video //save video before sheet dismisses
+                        }
+                    }
             }
             .navigationDestination(isPresented: $navigateToStreaming) {
-                VideoStreaming()
+                if let video = videoToStream {
+                   VideoStreaming(video: video)
+               }
             }
     }//body
 }//view

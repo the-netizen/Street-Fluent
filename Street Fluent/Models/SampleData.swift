@@ -2,128 +2,35 @@ import Foundation
 
 enum SampleData {
    
-    static let messageDialogue: [Dialogue] = [
-        Dialogue(
-            id: UUID(), index: 0,
-            startTime: 0.0, endTime: 2.8,
-            originalText: "大家 好",
-            translatedText: "Hello everyone",
-            words: [
-                Vocabulary(id: UUID(), word: "大家", pinyin: "dàjiā", meaning: "everyone", level: .beginner),
-                Vocabulary(id: UUID(), word: "好", pinyin: "hǎo", meaning: "good; hello", level: .beginner),
-            ]
-        ),
-        Dialogue(
-            id: UUID(), index: 1,
-            startTime: 2.8, endTime: 5.5,
-            originalText: "欢迎 来到 我的 频道",
-            translatedText: "Welcome to my channel",
-            words: [
-                Vocabulary(id: UUID(), word: "欢迎", pinyin: "huānyíng", meaning: "welcome", level: .beginner),
-                Vocabulary(id: UUID(), word: "来到", pinyin: "láidào", meaning: "to arrive", level: .beginner),
-                Vocabulary(id: UUID(), word: "我的", pinyin: "wǒ de", meaning: "my", level: .beginner),
-                Vocabulary(id: UUID(), word: "频道", pinyin: "píndào", meaning: "channel", level: .elementary),
-            ]
-        ),
-        Dialogue(
-            id: UUID(), index: 2,
-            startTime: 5.5, endTime: 9.0,
-            originalText: "今天 我 带 你们 去 吃 北京 烤鸭",
-            translatedText: "Today I'll take you to eat Beijing roast duck",
-            words: [
-                Vocabulary(id: UUID(), word: "今天", pinyin: "jīntiān", meaning: "today", level: .beginner),
-                Vocabulary(id: UUID(), word: "我", pinyin: "wǒ", meaning: "I", level: .beginner),
-                Vocabulary(id: UUID(), word: "带", pinyin: "dài", meaning: "to take; bring", level: .beginner),
-                Vocabulary(id: UUID(), word: "你们", pinyin: "nǐmen", meaning: "you (plural)", level: .beginner),
-                Vocabulary(id: UUID(), word: "去", pinyin: "qù", meaning: "to go", level: .beginner),
-                Vocabulary(id: UUID(), word: "吃", pinyin: "chī", meaning: "to eat", level: .beginner),
-                Vocabulary(id: UUID(), word: "北京", pinyin: "Běijīng", meaning: "Beijing", level: .beginner),
-                Vocabulary(id: UUID(), word: "烤鸭", pinyin: "kǎoyā", meaning: "roast duck", level: .elementary),
-            ]
-        ),
-        Dialogue(
-            id: UUID(), index: 3,
-            startTime: 9.0, endTime: 12.5,
-            originalText: "这家 店 非常 有名",
-            translatedText: "This restaurant is very famous",
-            words: [
-                Vocabulary(id: UUID(), word: "这家", pinyin: "zhè jiā", meaning: "this (shop/restaurant)", level: .beginner),
-                Vocabulary(id: UUID(), word: "店", pinyin: "diàn", meaning: "shop; store", level: .beginner),
-                Vocabulary(id: UUID(), word: "非常", pinyin: "fēicháng", meaning: "very; extremely", level: .beginner),
-                Vocabulary(id: UUID(), word: "有名", pinyin: "yǒumíng", meaning: "famous", level: .beginner),
-            ]
-        ),
-        Dialogue(
-            id: UUID(), index: 4,
-            startTime: 12.5, endTime: 19,
-            originalText: "这家 店 非常 有名",
-            translatedText: "This restaurant is very famous",
-            words: [
-                Vocabulary(id: UUID(), word: "这家", pinyin: "zhè jiā", meaning: "this (shop/restaurant)", level: .beginner),
-                Vocabulary(id: UUID(), word: "店", pinyin: "diàn", meaning: "shop; store", level: .beginner),
-                Vocabulary(id: UUID(), word: "非常", pinyin: "fēicháng", meaning: "very; extremely", level: .beginner),
-                Vocabulary(id: UUID(), word: "有名", pinyin: "yǒumíng", meaning: "famous", level: .beginner),
-            ]
-        ),
-    ]
-    
-    // MARK: - Dialogues for Video 2 (Daily Routine)
-    
-    static let poemDialogue: [Dialogue] = [
-        Dialogue(
-            id: UUID(), index: 0,
-            startTime: 0.0, endTime: 3.0,
-            originalText: "早上 好 朋友们",
-            translatedText: "Good morning friends",
-            words: [
-                Vocabulary(id: UUID(), word: "早上", pinyin: "zǎoshang", meaning: "morning", level: .beginner),
-                Vocabulary(id: UUID(), word: "好", pinyin: "hǎo", meaning: "good", level: .beginner),
-                Vocabulary(id: UUID(), word: "朋友们", pinyin: "péngyǒumen", meaning: "friends", level: .beginner),
-            ]
-        ),
-        Dialogue(
-            id: UUID(), index: 1,
-            startTime: 3.0, endTime: 6.2,
-            originalText: "现在 是 早上 七点",
-            translatedText: "It's 7 AM now",
-            words: [
-                Vocabulary(id: UUID(), word: "现在", pinyin: "xiànzài", meaning: "now", level: .beginner),
-                Vocabulary(id: UUID(), word: "是", pinyin: "shì", meaning: "is; to be", level: .beginner),
-                Vocabulary(id: UUID(), word: "早上", pinyin: "zǎoshang", meaning: "morning", level: .beginner),
-                Vocabulary(id: UUID(), word: "七点", pinyin: "qī diǎn", meaning: "7 o'clock", level: .beginner),
-            ]
-        ),
-        Dialogue(
-            id: UUID(), index: 2,
-            startTime: 6.2, endTime: 10.0,
-            originalText: "我 先 去 刷牙 洗脸",
-            translatedText: "First I'll go brush my teeth and wash my face",
-            words: [
-                Vocabulary(id: UUID(), word: "我", pinyin: "wǒ", meaning: "I", level: .beginner),
-                Vocabulary(id: UUID(), word: "先", pinyin: "xiān", meaning: "first", level: .beginner),
-                Vocabulary(id: UUID(), word: "去", pinyin: "qù", meaning: "to go", level: .beginner),
-                Vocabulary(id: UUID(), word: "刷牙", pinyin: "shuāyá", meaning: "brush teeth", level: .elementary),
-                Vocabulary(id: UUID(), word: "洗脸", pinyin: "xǐliǎn", meaning: "wash face", level: .elementary),
-            ]
-        ),
-    ]
- 
+   
     static let videos: [Video] = [
         Video(
             id: UUID(), title: "新年快乐",
             description: "Message to a friend for new years.",
             thumbnailURL: "Sample-image-1.avif", videoURL: "Sample-video-1",
             duration: 19, language: .chinese, level: .beginner,
-            dialogues: messageDialogue,
+            dialogues: SubtitleLoader.loadDialogues(for: "Sample-video-1"),
             isFeatured: true, dateAdded: Date()
         ),
         Video(
             id: UUID(), title: "poem",
-            description: "A Chinese poem", thumbnailURL: "Sample-image-2.jpg", videoURL: "Sample-video-2",
+            description: "A Chinese poem",
+            thumbnailURL: "Sample-image-2.jpg", videoURL: "Sample-video-2",
             duration: 16, language: .chinese, level: .beginner,
-            dialogues: poemDialogue,
-            isFeatured: true, dateAdded: Calendar.current.date(byAdding: .day, value: -2, to: Date())!
+            dialogues: SubtitleLoader.loadDialogues(for: "Sample-video-2"),
+            isFeatured: true,
+            dateAdded: Calendar.current.date(byAdding: .day, value: -2, to: Date())!
         ),
+        Video(
+            id: UUID(), title: "中国人在吃披萨",
+            description: "Trying Saudi pizza for the first time.",
+            thumbnailURL: "Sample-image-10.jpeg", videoURL: "Sample-video-3",
+            duration: 48, language: .chinese, level: .beginner,
+            dialogues: SubtitleLoader.loadDialogues(for: "Sample-video-3"),
+            isFeatured: true,
+            dateAdded: Calendar.current.date(byAdding: .day, value: -5, to: Date())!
+        ),
+        
         Video(
             id: UUID(), title: "上海一日游 Vlog",
             description: "A day in Shanghai — from the Bund to the Old Town. Great for travel vocabulary.",

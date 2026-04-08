@@ -14,7 +14,7 @@ enum TargetLanguage: String, Identifiable, CaseIterable, Codable{
 enum ProficiencyLevel: String, Identifiable, CaseIterable, Codable{
     
     var id: String {rawValue}
-    
+    // why do i need this? aaaaa
     case beginner = "beginner"
     case elementary = "elementary"
     case intermediate = "intermediate"
@@ -33,4 +33,10 @@ enum ProficiencyLevel: String, Identifiable, CaseIterable, Codable{
 enum LearningMode: String, Codable { //enum allows state toggle, better than collection
     case speaking
     case writing
+}
+
+enum RecordingState {
+    case idle
+    case recording
+    case finished
 }
