@@ -19,10 +19,12 @@ class VideoViewModel{
 
     var currentSubtitle = ""
     var currentTranslation = ""
-    var currentWords: [Vocabulary] = []
+    var currentWords: [Vocabulary] = [] // whats this for?
+    var currentWordsIndex: Int = 0
     
     var strokes: [[CGPoint]] = []         // completed strokes
     var currentStroke: [CGPoint] = []     // stroke being drawn right now
+    var showTracingGuide: Bool = false
     
     private var boundaryObserver: Any?   // runs at each dialogue endpoint
     private var periodicObserver: Any?   // runs every 0.2s to update subtitles
@@ -33,6 +35,12 @@ class VideoViewModel{
     } //temp save the recording for playbacks
     private var audioPlayer: AVAudioPlayer?
     private var playbackTimer: Timer?
+    
+    var currentWord: Vocabulary? {
+        guard let dialogue = currentDialogue,
+              dialogue.words.indices.contains(currentWordsIndex) else { return nil }
+        return dialogue.words[currentWordsIndex]
+    }
     
     var currentDialogue: Dialogue? {
         guard video.dialogues.indices.contains(currentDialogueIndex) else {return nil}
@@ -111,7 +119,10 @@ class VideoViewModel{
         isPlaying = false
     }
     
+    //----- control bar functions - speaking mode
+    
     func skipToNextDialogue() {
+        resetRecording() //clear previous recording
         isVideoPaused = false
         
         guard !isLastDialogue else {
@@ -155,7 +166,11 @@ class VideoViewModel{
     
     //show current dialogus sub and trans
     private func updateSubtitles() {
-        guard let dialogue = currentDialogue else {
+        currentWordsIndex = 0 //reset
+        clearCanvas()
+//        showTracingGuide = false
+        
+        guard let dialogue = currentDialogue else { //check if dialogue exists
             currentSubtitle = ""
             currentTranslation = ""
             currentWords = []
@@ -310,7 +325,7 @@ class VideoViewModel{
         }
     }
     
-    //writing mode:
+    // writing mode:
     
     func addPointToStroke(_ point: CGPoint) {
         currentStroke.append(point)
@@ -323,7 +338,19 @@ class VideoViewModel{
             currentStroke = []
         }
     }
-
+    
+    func skipToNextWord(){
+        guard let dialogue = currentDialogue else { return } //check if dialogue exists
+        
+        if currentWordsIndex < dialogue.words.count - 1 { //if theres words left
+            currentWordsIndex += 1
+            clearCanvas()
+        } else {
+            currentWordsIndex = 0
+            skipToNextDialogue() //checking
+        }
+    }
+    
     func clearCanvas() {
         strokes = []
         currentStroke = []

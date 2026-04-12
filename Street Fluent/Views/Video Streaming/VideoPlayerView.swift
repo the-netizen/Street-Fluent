@@ -25,13 +25,23 @@ struct VideoPlayerView: View {
 
             // Subtitle row - tappable words
             HStack(spacing: 4) {
-                ForEach(viewModel.currentWords) { word in
+                ForEach(Array(viewModel.currentWords.enumerated()), id: \.offset) { index, word in
                     Button{
-                        //each word is btn - popup dict when any word clicked
+                        //dictionary pop-up
                     } label: {
                         Text(word.word)
                             .font(.subheadline)
                             .foregroundColor(.primary)
+                            //highlight current word in writing mode
+                            .background(
+                                // only highlight in writing mode AND only the current word
+                                RoundedRectangle(cornerRadius: 4)
+                                    .fill(
+                                        viewModel.mode == .writing && index == viewModel.currentWordsIndex
+                                        ? Color.tangerine.opacity(0.4)
+                                        : Color.clear
+                                    )
+                            )
                     }
                     .buttonStyle(.plain)
                 }

@@ -34,7 +34,7 @@ struct Waveform: View {
                 // loop thru all audiolevels
                 ForEach(Array(visibleLevels.enumerated()), id: \.offset) { _, level in
                     RoundedRectangle(cornerRadius: 4)
-                        .fill(Color.white)
+                        .fill(Color(.systemBackground))
                         .frame(
                             width: barWidth,
                             // Bar height = level (0-1) × 80% of available height
@@ -62,7 +62,7 @@ struct Waveform: View {
                     let isPlayed = barPosition <= playbackProgress
                     
                     RoundedRectangle(cornerRadius: max(1, barWidth / 2))
-                        .fill(isPlayed ? Color.white : Color.white.opacity(0.3))
+                        .fill(isPlayed ? Color(.systemBackground) : Color(.systemBackground).opacity(0.3))
                         .frame(
                             width: barWidth,
                             height: max(3, level * geo.size.height * 1.5)

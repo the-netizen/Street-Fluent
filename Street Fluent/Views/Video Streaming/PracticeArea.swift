@@ -63,16 +63,16 @@ struct PracticeArea: View {
                     
                     // toggle tracing help
                     Button {
-                        viewModel.clearCanvas()
+                        viewModel.showTracingGuide.toggle()
                     } label: {
-                        Image(systemName: "eye") // or eye.slash
+                        Image(systemName: viewModel.showTracingGuide ? "eye.slash" : "eye")
                             .font(.title3)
                     }
                     Spacer()
                     
                     // skip button - should skip words
                     Button {
-                        viewModel.skipToNextDialogue()
+                        viewModel.skipToNextWord()
                     } label: {
                         Image(systemName: "forward.fill")
                             .font(.title3)
@@ -108,9 +108,22 @@ struct PracticeArea: View {
               
     
         private var writingArea: some View {
-            VStack(spacing: 0){
-                WritingCanvas(viewModel: viewModel)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            GeometryReader{ geo in
+                
+                let screenSize = min(geo.size.width, geo.size.height) //min for iphone
+                
+                ZStack{
+                    //tracing guide
+                    if viewModel.showTracingGuide, let word = viewModel.currentWord {
+                        Text(word.word)
+                            .font(.system(size: screenSize * 0.5)) //dynamic
+                            .foregroundColor(Color.primary.opacity(50))
+                            .allowsHitTesting(false) //lets touch pass thru to canvas
+                    }
+                    
+                    WritingCanvas(viewModel: viewModel)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
             }
         } //writing area
     
