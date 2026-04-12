@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F3A38A3E2F8BB2B400C9182B /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3A38A3D2F8BB2B400C9182B /* Speech.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		F334067A2F3AFB3A006A8467 /* Street Fluent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Street Fluent.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3A38A3D2F8BB2B400C9182B /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -23,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3A38A3E2F8BB2B400C9182B /* Speech.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -33,6 +39,7 @@
 			isa = PBXGroup;
 			children = (
 				F334067C2F3AFB3A006A8467 /* Street Fluent */,
+				F3A38A3C2F8BB2B400C9182B /* Frameworks */,
 				F334067B2F3AFB3A006A8467 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +50,14 @@
 				F334067A2F3AFB3A006A8467 /* Street Fluent.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F3A38A3C2F8BB2B400C9182B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F3A38A3D2F8BB2B400C9182B /* Speech.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +271,8 @@
 				DEVELOPMENT_TEAM = UR2GTWY975;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone access is required so you can record and review your speech.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Street Fluent needs microphone access to record your voice practice.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Street Fluent uses speech recognition to evaluate your pronunciation accuracy.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -289,7 +305,8 @@
 				DEVELOPMENT_TEAM = UR2GTWY975;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone access is required so you can record and review your speech.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Street Fluent needs microphone access to record your voice practice.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Street Fluent uses speech recognition to evaluate your pronunciation accuracy.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
