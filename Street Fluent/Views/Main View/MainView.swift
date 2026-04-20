@@ -1,13 +1,8 @@
 import SwiftUI
 
 struct MainView: View {
-    @State var selectedDate: Date
-//    private var settings = AppSettings.shared
-
-    // Explicit initializer
-    init(selectedDate: Date) {
-        _selectedDate = State(initialValue: selectedDate)
-    }
+    @State var selectedDate: Date = Date()
+    private var settings = AppSettings.shared //shared app settings to store user pref
 
     var body: some View {
         NavigationStack{
@@ -24,20 +19,22 @@ struct MainView: View {
 //                    FeaturedVideos()
                     VideoBrowsing()
                     
-                    // maybe a graph idk.
-                    
-                    // FeaturedArticles in future:
-                    //                    FeaturedVideos()
-                    
                     Spacer()
-                    
                 }
             }
             .background(Color(.systemBackground))
+            .toolbar{
+                ToolbarItem(placement: .topBarLeading) {
+                    LanguagePickerButton(settings: settings)
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    ProfileButton()
+                }
+            }
         }
     }
 }
 
 #Preview {
-    MainView(selectedDate: Date())
+    MainView()
 }

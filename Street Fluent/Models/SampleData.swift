@@ -93,6 +93,25 @@ enum SampleData {
             dialogues: [], isFeatured: false,
             dateAdded: Calendar.current.date(byAdding: .day, value: -22, to: Date())!
         ),
+        // === English ===
+        Video(
+            id: UUID(), title: "Morning Routine",
+            description: "A day in the life — casual English conversation.",
+            thumbnailURL: "Sample-image-3.png", videoURL: "",  // add real video later
+            duration: 120, language: .english, level: .beginner,
+            dialogues: [], isFeatured: true,
+            dateAdded: Date()
+        ),
+
+        // === Arabic ===
+        Video(
+            id: UUID(), title: "في المطعم",
+            description: "Ordering food at a restaurant in Arabic.",
+            thumbnailURL: "Sample-image-4.jpeg", videoURL: "",
+            duration: 90, language: .arabic, level: .beginner,
+            dialogues: [], isFeatured: true,
+            dateAdded: Date()
+        ),
     ]
     
     static var featuredVideos: [Video] {

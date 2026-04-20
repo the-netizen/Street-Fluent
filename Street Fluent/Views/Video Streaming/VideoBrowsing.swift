@@ -5,10 +5,12 @@ struct VideoBrowsing: View {
     @State private var selectedVideo: Video? = nil
     @State private var videoToStream: Video? = nil
     @State private var showStreaming = false
-//    @Environment(\.dismiss) private var dismiss
+    private var settings = AppSettings.shared //to change videos based on language
+    //    @Environment(\.dismiss) private var dismiss
     
     var filteredVideos: [Video] {
         SampleData.videos(for: selectedLevel)
+            .filter { $0.language == settings.selectedLanguage }
     }
     
     let columns = [
@@ -21,7 +23,7 @@ struct VideoBrowsing: View {
         ScrollView {
             VStack(spacing: 20) {
                 //filtering at top
-                FilterView(selectedLevel: $selectedLevel)
+                FilterView(selectedLevel: $selectedLevel, language: settings.selectedLanguage)
                     .padding(.horizontal)
                 
                 LazyVGrid(columns: columns, spacing: 20) {
@@ -59,6 +61,7 @@ struct VideoBrowsing: View {
 
 struct FilterView: View {
     @Binding var selectedLevel: ProficiencyLevel?
+    var language: TargetLanguage
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -74,7 +77,7 @@ struct FilterView: View {
                 // Level buttons
                 ForEach(ProficiencyLevel.allCases) { level in
                     FilterOption(
-                        title: level.chineseDisplayName,
+                        title: language == .chinese ? level.chineseDisplayName : level.displayName,
 //                        count: SampleData.videoCount(for: level),
                         isSelected: selectedLevel == level
                     ) {

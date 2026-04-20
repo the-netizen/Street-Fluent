@@ -1,7 +1,5 @@
 import SwiftUI
 
-// Toolbar button showing current language flag.
-// Tapping opens a dropdown to switch languages.
 struct LanguagePickerButton: View {
     var settings: AppSettings
     
@@ -20,14 +18,14 @@ struct LanguagePickerButton: View {
                 }
             }
         } label: {
-            // Flag only — clean and simple
+            // Flag only
             HStack(spacing: 2) {
                 Text(settings.selectedLanguage.flag)
                     .font(.title2)
                 Image(systemName: "chevron.down")
                     .font(.caption2)
                     .fontWeight(.semibold)
-                    .foregroundStyle(.primary)
+                    .foregroundColor(.primary)
             }
         }
     }
