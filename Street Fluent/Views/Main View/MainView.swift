@@ -2,9 +2,15 @@ import SwiftUI
 
 struct MainView: View {
     @State var selectedDate: Date
-    
+//    private var settings = AppSettings.shared
+
+    // Explicit initializer
+    init(selectedDate: Date) {
+        _selectedDate = State(initialValue: selectedDate)
+    }
+
     var body: some View {
-//        NavigationStack{
+        NavigationStack{
             ScrollView{
                 VStack(spacing: 15){
                     Spacer()
@@ -12,25 +18,24 @@ struct MainView: View {
                     //WeeklyCalenderView
                     WeeklyCalendarView(selectedDate: $selectedDate)
                     
-                    //SRSView
-                    DailyProgressCard(selectedDate: selectedDate)
+                    //Vocabulary flashcards
                     
                     // FeaturedVideos
-                    FeaturedVideos()
+//                    FeaturedVideos()
+                    VideoBrowsing()
                     
                     // maybe a graph idk.
                     
                     // FeaturedArticles in future:
-//                    FeaturedVideos()
+                    //                    FeaturedVideos()
                     
                     Spacer()
-                                        
+                    
                 }
             }
-            .background(Color.bg)
+            .background(Color(.systemBackground))
         }
-//        .navigationTitle("Street Fluent")
-//    }
+    }
 }
 
 #Preview {

@@ -11,33 +11,41 @@ struct VideoStreaming: View {
     }
     
     var body: some View {
-        VStack(spacing: 20) {
+        ZStack{
             VStack(spacing: 0) {
-                // video streaming area
                 VideoPlayerView(viewModel: viewModel)
-                
                 PracticeArea(viewModel: viewModel)
-                
-            }
+            }//v
             .background(Color.bg)
-            .toolbar(.hidden, for: .tabBar)
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    // tap to switch between speaking nd writing
-                    Button {
-                        viewModel.mode = (viewModel.mode == .speaking) ? .writing : .speaking
-                    } label: {
-                        // icon changes based on current mode
-                        Image(systemName: viewModel.mode == .speaking ? "pencil" : "mic.fill")
-                    }
+            
+            //score card when video finished
+            if viewModel.showScoreCard {
+                ScoreCardOverlay(viewModel: viewModel, video: video)
+            }
+        }//z
+        .contentShape(Rectangle())
+            .simultaneousGesture(
+                TapGesture().onEnded {
+                    viewModel.selectedWord = nil
+                }
+            ) //dismiss dictionary popup when tapped anywhere
+        .toolbar(.hidden, for: .tabBar)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                // tap to switch between speaking nd writing
+                Button {
+                    viewModel.mode = (viewModel.mode == .speaking) ? .writing : .speaking
+                } label: {
+                    // icon changes based on current mode
+                    Image(systemName: viewModel.mode == .speaking ? "pencil" : "mic.fill")
                 }
             }
-            .onAppear { viewModel.setupPlayer() }
-            .onDisappear { viewModel.cleanup() } //wot?
-        }
+        }//toolbar
+        .onAppear { viewModel.setupPlayer() }
+        .onDisappear { viewModel.cleanup() } //wot?
     }
 }
 #Preview {
-    VideoStreaming(video: SampleData.videos[0])
+    VideoStreaming(video: SampleData.videos[2])
 }

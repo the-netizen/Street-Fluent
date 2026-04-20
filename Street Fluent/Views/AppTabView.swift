@@ -2,29 +2,36 @@ import SwiftUI
 
 struct AppTabView: View {
     @State private var selectedDate = Date()
-    
+    // if ipad, make the nav look like ipad. hig
     var body: some View {
         TabView {
-            NavigationStack {
-                MainView(selectedDate: selectedDate)
-            }
-            .tabItem {
-                Label("", systemImage: "house.fill")
-            }
+//            NavigationStack {
+//                MainView(selectedDate: selectedDate)
+//            }
+//            .tabItem {
+//                Label("", systemImage: "house.fill")
+//            }
+//
+//            NavigationStack {
+//                VideoBrowsing()
+//            }
+//            .tabItem {
+//                Label("", systemImage: "play.rectangle.fill")
+//            }
 
-            NavigationStack {
-                VideoBrowsing()
-            }
-            .tabItem {
-                Label("", systemImage: "play.rectangle.fill")
-            }
-
-            NavigationStack {
-                Practice()
-            }
-            .tabItem {
-                Label("", systemImage: "character.book.closed.fill")
-            }
+//            NavigationStack {
+//                Practice()
+//            }
+//            .tabItem {
+//                Label("", systemImage: "character.book.closed.fill")
+//            }
+//            
+//            NavigationStack {
+//                Profile()
+//            }
+//            .tabItem {
+//                Label("", systemImage: "person.crop.circle")
+//            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .tabViewStyle(.automatic)

@@ -112,22 +112,72 @@ enum SampleData {
         let today = Date()
         
         return [
-            StudyRecord(id: UUID(), date: today,
-                        minutesStudied: 25, wordsReviewed: 12, wordsLearned: 4, videosWatched: 2),
-            StudyRecord(id: UUID(), date: calendar.date(byAdding: .day, value: -1, to: today)!,
-                        minutesStudied: 15, wordsReviewed: 8, wordsLearned: 2, videosWatched: 1),
-            StudyRecord(id: UUID(), date: calendar.date(byAdding: .day, value: -2, to: today)!,
-                        minutesStudied: 30, wordsReviewed: 20, wordsLearned: 5, videosWatched: 3), //start streak
-            StudyRecord(id: UUID(), date: calendar.date(byAdding: .day, value: -3, to: today)!,
-                        minutesStudied: 0, wordsReviewed: 0, wordsLearned: 0, videosWatched: 0),
-            StudyRecord(id: UUID(), date: calendar.date(byAdding: .day, value: -4, to: today)!,
-                        minutesStudied: 20, wordsReviewed: 15, wordsLearned: 3, videosWatched: 2),
-            StudyRecord(id: UUID(), date: calendar.date(byAdding: .day, value: -5, to: today)!,
-                        minutesStudied: 10, wordsReviewed: 5, wordsLearned: 1, videosWatched: 1),
-            StudyRecord(id: UUID(), date: calendar.date(byAdding: .day, value: -6, to: today)!,
-                        minutesStudied: 35, wordsReviewed: 22, wordsLearned: 6, videosWatched: 2),
-        ]
-    }()
+                StudyRecord(id: UUID(), date: today, sessions: [
+                    VideoSession(id: UUID(), videoID: UUID(),
+                        videoTitle: "新年快乐",
+                        date: today,
+                        dialoguesAttempted: 4, dialoguesTotal: 4, avgScore: 82),
+                    VideoSession(id: UUID(), videoID: UUID(),
+                        videoTitle: "poem",
+                        date: today,
+                        dialoguesAttempted: 3, dialoguesTotal: 5, avgScore: 61)
+                ]),
+                StudyRecord(id: UUID(),
+                    date: calendar.date(byAdding: .day, value: -1, to: today)!,
+                    sessions: [
+                        VideoSession(id: UUID(), videoID: UUID(),
+                            videoTitle: "中国人在吃披萨",
+                            date: calendar.date(byAdding: .day, value: -1, to: today)!,
+                            dialoguesAttempted: 6, dialoguesTotal: 8, avgScore: 74)
+                    ]
+                ),
+                StudyRecord(id: UUID(),
+                    date: calendar.date(byAdding: .day, value: -2, to: today)!,
+                    sessions: [
+                        VideoSession(id: UUID(), videoID: UUID(),
+                            videoTitle: "新年快乐",
+                            date: calendar.date(byAdding: .day, value: -2, to: today)!,
+                            dialoguesAttempted: 4, dialoguesTotal: 4, avgScore: 91)
+                    ]
+                ),
+                // day -3: no study
+                StudyRecord(id: UUID(),
+                    date: calendar.date(byAdding: .day, value: -3, to: today)!,
+                    sessions: []
+                ),
+                StudyRecord(id: UUID(),
+                    date: calendar.date(byAdding: .day, value: -4, to: today)!,
+                    sessions: [
+                        VideoSession(id: UUID(), videoID: UUID(),
+                            videoTitle: "poem",
+                            date: calendar.date(byAdding: .day, value: -4, to: today)!,
+                            dialoguesAttempted: 5, dialoguesTotal: 5, avgScore: 68)
+                    ]
+                ),
+                StudyRecord(id: UUID(),
+                    date: calendar.date(byAdding: .day, value: -5, to: today)!,
+                    sessions: [
+                        VideoSession(id: UUID(), videoID: UUID(),
+                            videoTitle: "新年快乐",
+                            date: calendar.date(byAdding: .day, value: -5, to: today)!,
+                            dialoguesAttempted: 2, dialoguesTotal: 4, avgScore: 55)
+                    ]
+                ),
+                StudyRecord(id: UUID(),
+                    date: calendar.date(byAdding: .day, value: -6, to: today)!,
+                    sessions: [
+                        VideoSession(id: UUID(), videoID: UUID(),
+                            videoTitle: "中国人在吃披萨",
+                            date: calendar.date(byAdding: .day, value: -6, to: today)!,
+                            dialoguesAttempted: 8, dialoguesTotal: 8, avgScore: 88),
+                        VideoSession(id: UUID(), videoID: UUID(),
+                            videoTitle: "poem",
+                            date: calendar.date(byAdding: .day, value: -6, to: today)!,
+                            dialoguesAttempted: 3, dialoguesTotal: 5, avgScore: 72)
+                    ]
+                ),
+            ]
+        }()
     
     //find study record for specific date
     static func studyRecord(for date: Date) -> StudyRecord? {

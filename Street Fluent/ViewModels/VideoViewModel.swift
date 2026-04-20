@@ -10,17 +10,22 @@ class VideoViewModel{
     var currentDialogueIndex = 0
     var mode: LearningMode = .speaking
     var recordingState: RecordingState = .idle
-//    var isRecording = false //rec voice
-//    var hasRecording = false //finish rec voice
+    
     var audioLevels: [CGFloat] = [] // waveform bar heights
     var playbackProgress: CGFloat = 0 //recording playback
     var isPlayingBack = false
-
-
+    
+    var currentDialogueScore: Int? = nil //nil means not yet evaluated
+    var perDialogueScores: [Int: Int] = [:] //index : score
+    var showScoreCard = false    // triggers the sheet
+    var sessionComplete = false  // marks video as finished
+    
     var currentSubtitle = ""
     var currentTranslation = ""
     var currentWords: [Vocabulary] = [] // whats this for?
     var currentWordsIndex: Int = 0
+    
+    var selectedWord: Vocabulary? = nil //to show dictionary when word tapped
     
     var strokes: [[CGPoint]] = []         // completed strokes
     var currentStroke: [CGPoint] = []     // stroke being drawn right now
@@ -58,6 +63,12 @@ class VideoViewModel{
     var dialogueProgress: String {
         "\(currentDialogueIndex + 1) / \(video.dialogues.count)" // dialogue num 1/10
     }
+    
+    var overallScore: Int {
+        guard !perDialogueScores.isEmpty else { return 0 }
+        let total = perDialogueScores.values.reduce(0, +)
+        return total / perDialogueScores.count
+    } //avg of all recorded dialogues + excludes the skipped ones
     
     init(video: Video) {
         self.video = video
@@ -127,6 +138,7 @@ class VideoViewModel{
         
         guard !isLastDialogue else {
             pause()
+            showScoreCard = true //show card when last dialogue skipped
             return
         }
         
@@ -251,6 +263,22 @@ class VideoViewModel{
         audioRecorder?.stop()       // stop the actual recording
         audioRecorder = nil
         recordingState = .finished
+        
+        //expected = curernts og text
+        guard let expectedText = currentDialogue?.originalText else { return }
+            
+        SpeechEvaluator.evaluate(
+            recordingURL: audioRecordingURL,
+            expected: expectedText,
+            locale: video.language.speechLocale) { [weak self] score in
+            guard let self else { return }
+            self.currentDialogueScore = score // Update current dialogue score
+            
+            // Store it by dialogue index so we can average later
+            if let score {
+                self.perDialogueScores[self.currentDialogueIndex] = score
+            }
+        }
     }
 
     func resetRecording() {
@@ -268,6 +296,7 @@ class VideoViewModel{
         audioLevels = [] //clear waveform bars
         playbackProgress = 0
         isPlayingBack = false
+        currentDialogueScore = nil //reset current score
     }
 
     func startPlayback() {
@@ -322,6 +351,16 @@ class VideoViewModel{
                 self.playbackTimer?.invalidate()
                 self.playbackTimer = nil
             }
+        }
+    }
+    
+    func restartVideo() { //replays from dialogue 0
+        resetRecording()
+        perDialogueScores = [:]
+        currentDialogueIndex = 0
+        updateSubtitles()
+        player?.seek(to: .zero) { [weak self] _ in
+            self?.play()
         }
     }
     

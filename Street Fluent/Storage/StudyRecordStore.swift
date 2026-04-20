@@ -1,5 +1,7 @@
 import Foundation
 
+// storage for study records
+
 @Observable
 class StudyRecordStore{
     static let shared = StudyRecordStore() // one instance used everywhere
@@ -7,7 +9,7 @@ class StudyRecordStore{
     private let key = "studyRecords"
     
     // In-memory records, loaded once at launch
-    var records: [StudyRecordStore] = []
+    var records: [StudyRecord] = []
     
     private init() {
         load()

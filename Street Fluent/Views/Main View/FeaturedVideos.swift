@@ -11,12 +11,24 @@ struct FeaturedVideos: View {
                 HStack{
                     Text("Featured videos")
                         .font(.headline)
+                    
                     Spacer()
+                    
+                    NavigationLink(destination: VideoBrowsing()) {
+                        HStack(spacing: 4) {
+                            Text("More")
+                                .font(.subheadline)
+                                .foregroundColor(.primary)
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundColor(.primary)
+                        }
+                    }
+                    .buttonStyle(PlainButtonStyle())
 
                 }//header
                 .padding(.horizontal, 20)
                 .padding(.vertical, 10)
-
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 12) {
@@ -31,7 +43,7 @@ struct FeaturedVideos: View {
                 }//hscroll
                 .padding(.vertical, 20)
             }//v
-            .background(.jeans)
+        .background(.jeans.opacity(0.5))
             .cornerRadius(15)
             .overlay(
                 RoundedRectangle(cornerRadius: 15)

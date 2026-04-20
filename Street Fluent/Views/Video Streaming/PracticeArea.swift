@@ -22,7 +22,8 @@ struct PracticeArea: View {
                 .stroke(Color(.systemBackground), lineWidth: 3)
         )//border
         .padding(.horizontal, 16)
-        .frame(maxHeight: .infinity) //take all available space
+        .padding(.top, 20)
+        .frame(maxWidth: .infinity) //take all available space
         
     }
     
@@ -170,43 +171,90 @@ struct PracticeArea: View {
 
     
     private var recordingPlayback: some View {
-        HStack{
-            if viewModel.recordingState == .finished {
-                Button {
-                    if viewModel.isPlayingBack {
-                        viewModel.stopPlayback()
-                    } else {
-                        viewModel.startPlayback()
-                    }
-                } label: {
-                    Image(systemName: viewModel.isPlayingBack ? "pause.circle.fill" : "play.circle.fill")
-                        .font(.system(size: 50))
-                        .foregroundStyle(.tangerine)
-                }
+        VStack(spacing: 16) {
+            if let score = viewModel.currentDialogueScore {
+                Text("\(score)%")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .foregroundColor(.tangerine)
+                
             }
-            Spacer()
-            Waveform(
-                levels: viewModel.audioLevels,
-                isRecording: viewModel.recordingState == .recording,
-                playbackProgress: viewModel.playbackProgress,
-                onDrag: { progress in
-                    // only allow scrubbing when playback is active
-                    if viewModel.recordingState == .finished {
-                        viewModel.seekPlayback(to: progress)
+//            else {
+//                Text("evaluating...")
+//                    .font(.caption)
+//                    .foregroundStyle(.secondary)
+//            }
+            
+            HStack{
+                if viewModel.recordingState == .finished {
+                    Button {
+                        if viewModel.isPlayingBack {
+                            viewModel.stopPlayback()
+                        } else {
+                            viewModel.startPlayback()
+                        }
+                    } label: {
+                        Image(systemName: viewModel.isPlayingBack ? "pause.circle.fill" : "play.circle.fill")
+                            .font(.system(size: 50))
+                            .foregroundStyle(.tangerine)
                     }
-                },
-                onTap: {
-                    if viewModel.recordingState == .recording {
-                        viewModel.stopRecording()
-                    } //stop rec on tap
                 }
-            )
-        }//h
-        .frame(height: 100)
-        .padding(.horizontal, 20)
+                
+                Spacer()
+                
+                Waveform(
+                    levels: viewModel.audioLevels,
+                    isRecording: viewModel.recordingState == .recording,
+                    playbackProgress: viewModel.playbackProgress,
+                    onDrag: { progress in
+                        // only allow scrubbing when playback is active
+                        if viewModel.recordingState == .finished {
+                            viewModel.seekPlayback(to: progress)
+                        }
+                    },
+                    onTap: {
+                        if viewModel.recordingState == .recording {
+                            viewModel.stopRecording()
+                        } //stop rec on tap
+                    }
+                )
+            }//h
+            .frame(height: 100)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 30)
+            
+            
+            Text(feedbackText)
+                .font(.caption)
+                .foregroundStyle(Color(.systemBackground))
+                .multilineTextAlignment(.center)
+                .lineLimit(.none)//??
+                .padding(.horizontal, 20)
+        }//v
     }// playback
+    
+    private var feedbackText: String {
+        guard let score = viewModel.currentDialogueScore else {
+            return " "
+        }
+        
+        switch score {
+        case 80...100: return "Great work! Your pronunciation is strong. 🎉"
+        case 60...79:  return "Good effort! Keep practising to improve your tones."
+        case 40...59:  return "Your pronunciation could be better. Please try again."
+        default:       return "Don't give up! Listening and repeating is how you improve."
+        }
+    }
 }
 
 #Preview {
     PracticeArea(viewModel: VideoViewModel(video: SampleData.videos[0]))
+}
+
+#Preview {
+    let vm = VideoViewModel(video: SampleData.videos[0])
+    vm.currentDialogueScore = 85
+    vm.recordingState = .finished
+    vm.audioLevels = [0.3, 0.6, 0.8, 0.4, 0.9, 0.2, 0.7]
+    return PracticeArea(viewModel: vm)
 }

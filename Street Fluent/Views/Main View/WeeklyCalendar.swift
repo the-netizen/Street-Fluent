@@ -160,13 +160,8 @@ struct DayCell: View {
                         isFuture ? .black : .primary
                     )
             }
-            
-            // Study activity dot
-//            Circle()
-//                .fill(didStudy ? Color.green : Color.clear)
-//                .frame(width: 5, height: 5)
         }
-        .opacity(isFuture ? 0.5 : 1)
+        .opacity(isFuture ? 0.5 : 1) // maybe i should disable future selection
     }
 }
 
@@ -174,3 +169,7 @@ struct DayCell: View {
     WeeklyCalendarView(selectedDate: .constant(Date()))
         .padding()
 }
+
+//#Preview{
+//    DayCell(date: Date(), isSelected: false, isToday: false, didStudy: true)
+//}

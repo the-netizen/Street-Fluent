@@ -22,42 +22,57 @@ struct VideoPlayerView: View {
                     }
             }
             Rectangle().fill(.primary).frame(height: 3)
-
-            // Subtitle row - tappable words
-            HStack(spacing: 4) {
-                ForEach(Array(viewModel.currentWords.enumerated()), id: \.offset) { index, word in
-                    Button{
-                        //dictionary pop-up
-                    } label: {
-                        Text(word.word)
-                            .font(.subheadline)
-                            .foregroundColor(.primary)
-                            //highlight current word in writing mode
-                            .background(
-                                // only highlight in writing mode AND only the current word
-                                RoundedRectangle(cornerRadius: 4)
-                                    .fill(
-                                        viewModel.mode == .writing && index == viewModel.currentWordsIndex
-                                        ? Color.tangerine.opacity(0.4)
-                                        : Color.clear
-                                    )
-                            )
+            
+//            VStack{
+                // Subtitle row
+                HStack(spacing: 4) {
+                    ForEach(Array(viewModel.currentWords.enumerated()), id: \.offset) { index, word in
+                        Button{
+                            //dictionary pop-up
+                            if viewModel.selectedWord?.id == word.id {
+                                viewModel.selectedWord = nil
+                            } else {
+                                viewModel.selectedWord = word
+                            }
+                        } label: {
+                            Text(word.word)
+                                .font(.title3)
+                                .foregroundColor(.primary)
+                                .background(
+                                    //highlight in writing mode
+                                    //tapped word should become bold
+                                    RoundedRectangle(cornerRadius: 4)
+                                        .fill(
+                                            viewModel.mode == .writing && index == viewModel.currentWordsIndex
+                                            ? Color.tangerine.opacity(0.4)
+                                            : Color.clear
+                                        )
+                                )
+                        }
+                        .buttonStyle(.plain)
                     }
-                    .buttonStyle(.plain)
-                }
-            }
-            .frame(maxWidth: .infinity)
-            .padding(10)
-            
-            //linear dict popup
-            
-            // Translation row
-            Text(viewModel.currentTranslation)
-                .font(.caption)
-                .foregroundStyle(.secondary)
-                .padding(.bottom, 10)
-            
-        }
+                }//h
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal, 10)
+                .padding(.top, 10)
+                
+                // Translation row
+                Text(viewModel.currentTranslation)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .padding(15)
+                    .overlay(alignment: .center) { //dictionary popup
+                        if let word = viewModel.selectedWord {
+                            DictionaryPopup(word: word) {
+                                viewModel.selectedWord = nil
+                            }
+                            .simultaneousGesture(TapGesture().onEnded { }) // absorbs taps on the popup itself
+                        }
+                    }
+                    .padding(.top, 3)
+                    .padding(.bottom, 8)
+                
+        }//v
         .background(Color(.systemBackground))
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .overlay(
@@ -65,10 +80,9 @@ struct VideoPlayerView: View {
                 .stroke(Color(.systemBackground), lineWidth: 3)
         )
         .padding(.horizontal, 16)
-        .frame(maxHeight: .infinity)
     }
 }
 
 #Preview {
-    VideoPlayerView(viewModel: VideoViewModel(video: SampleData.videos[1]))
+    VideoPlayerView(viewModel: VideoViewModel(video: SampleData.videos[2]))
 }

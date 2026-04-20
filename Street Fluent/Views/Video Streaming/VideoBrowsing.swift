@@ -36,10 +36,10 @@ struct VideoBrowsing: View {
             }
             .padding(.vertical, 20)
         }
-        .background(Color.bg)
-        .navigationTitle("Video Browsing")
-        .navigationBarTitleDisplayMode(.inline)
-//        .navigationBarBackButtonHidden(false)
+//        .background(Color.bg)
+        .background(Color(.systemBackground))
+//        .navigationTitle("Video Browsing")
+//        .navigationBarTitleDisplayMode(.inline)
         .sheet(item: $selectedVideo) { video in
             VideoDescriptionSheet(video: video, startStreaming: $showStreaming)
                 .presentationDetents([.medium, .large])
@@ -74,7 +74,7 @@ struct FilterView: View {
                 // Level buttons
                 ForEach(ProficiencyLevel.allCases) { level in
                     FilterOption(
-                        title: level.displayName,
+                        title: level.chineseDisplayName,
 //                        count: SampleData.videoCount(for: level),
                         isSelected: selectedLevel == level
                     ) {

@@ -14,7 +14,7 @@ struct VideoDescriptionSheet: View {
                     .fontWeight(.bold)
                 Spacer()
                 // add number of new words later
-                Text(video.level.displayName)
+                Text(video.level.chineseDisplayName)
                     .font(.caption)
                     .fontWeight(.medium)
             }

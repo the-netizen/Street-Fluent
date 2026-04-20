@@ -75,12 +75,12 @@ struct VideoCard: View {
                     }
                 }
                 .aspectRatio(16/9, contentMode: .fit)
-                .frame(width: style == .horizontal ? 120 : nil,
+                .frame(width: style == .horizontal ? 130 : nil,
                        height: style == .horizontal ? 80 : nil)
                 .clipShape(RoundedRectangle(cornerRadius: 8))
                 
                 if showLevelBadge {
-                    Text(video.level.displayName)
+                    Text(video.level.chineseDisplayName)
                         .font(.caption2)
                         .fontWeight(.heavy)
                         .foregroundColor(.tangerine)
