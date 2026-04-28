@@ -1,0 +1,68 @@
+{
+    "dialogues": [
+        {
+            "index": 0,
+            "startTime": 0.0,
+            "endTime": 2.0,
+            "originalText": "新年快乐，",
+            "translatedText": "Happy New Year!",
+            "wordIds": ["zh_xinnian", "zh_kuaile"]
+        },
+        {
+            "index": 1,
+            "startTime": 2.0,
+            "endTime": 5.0,
+            "originalText": "希望你每天都开心幸福",
+            "translatedText": "I hope you are happy and joyful every day.",
+            "wordIds": ["zh_xiwang", "zh_ni", "zh_meitian", "zh_dou", "zh_kaixin", "zh_xingfu"]
+        },
+        {
+            "index": 2,
+            "startTime": 5.0,
+            "endTime": 7.0,
+            "originalText": "和你聊天，我真的很快乐，",
+            "translatedText": "Chatting with you makes me truly happy.",
+            "wordIds": ["zh_he", "zh_ni", "zh_liaotian", "zh_wo", "zh_zhende", "zh_hen", "zh_kuaile"]
+        },
+        {
+            "index": 3,
+            "startTime": 7.0,
+            "endTime": 10.0,
+            "originalText": "我很喜欢你，很在乎你",
+            "translatedText": "I like you a lot and care about you a lot.",
+            "wordIds": ["zh_wo", "zh_hen", "zh_xihuan", "zh_ni", "zh_hen", "zh_zaihu", "zh_ni"]
+        },
+        {
+            "index": 4,
+            "startTime": 10.0,
+            "endTime": 11.0,
+            "originalText": "新的一年，",
+            "translatedText": "In the new year,",
+            "wordIds": ["zh_xin", "zh_de", "zh_yinian"]
+        },
+        {
+            "index": 5,
+            "startTime": 11.0,
+            "endTime": 15.0,
+            "originalText": "我们希望我们能一直好好相处，",
+            "translatedText": "We hope we can continue to get along well,",
+            "wordIds": ["zh_women", "zh_xiwang", "zh_women", "zh_neng", "zh_yizhi", "zh_haohao", "zh_xiangchu"]
+        },
+        {
+            "index": 6,
+            "startTime": 15.0,
+            "endTime": 18.0,
+            "originalText": "天天都能说说话聊聊天，",
+            "translatedText": "and talk and chat every day.",
+            "wordIds": ["zh_tiantian", "zh_dou", "zh_neng", "zh_shuoshuohua", "zh_liaoliaotian"]
+        },
+        {
+            "index": 7,
+            "startTime": 18.0,
+            "endTime": 19.0,
+            "originalText": "新年快乐。",
+            "translatedText": "Happy New Year!",
+            "wordIds": ["zh_xinnian", "zh_kuaile"]
+        }
+    ]
+}

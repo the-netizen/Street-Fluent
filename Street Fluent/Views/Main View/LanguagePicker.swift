@@ -18,7 +18,7 @@ struct LanguagePickerButton: View {
                 }
             }
         } label: {
-            // Flag only
+            // Flag
             HStack(spacing: 2) {
                 Text(settings.selectedLanguage.flag)
                     .font(.title2)

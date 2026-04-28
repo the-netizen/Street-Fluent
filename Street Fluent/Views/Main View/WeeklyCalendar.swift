@@ -95,7 +95,7 @@ struct WeekDaysRow: View {
                     date: day,
                     isSelected: calendar.isDate(day, inSameDayAs: selectedDate),
                     isToday: calendar.isDateInToday(day),
-                    didStudy: SampleData.studyRecord(for: day)?.didStudy ?? false
+                    didStudy: false
                 )
                 .onTapGesture {
                     selectedDate = day

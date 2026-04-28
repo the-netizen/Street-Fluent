@@ -1,7 +1,12 @@
 import SwiftUI
 
 struct FeaturedVideos: View {
-    let featuredVideos: [Video] = SampleData.featuredVideos
+    private var settings = AppSettings.shared
+    var featuredVideos: [Video] {
+        SampleData.videos
+            .filter { $0.isFeatured && $0.language == settings.selectedLanguage }
+    }
+//    let featuredVideos: [Video] = SampleData.featuredVideos
     @State private var selectedVideo: Video? = nil
     @State private var videoToStream: Video? = nil
     @State private var navigateToStreaming = false
@@ -43,7 +48,8 @@ struct FeaturedVideos: View {
                 }//hscroll
                 .padding(.vertical, 20)
             }//v
-        .background(.jeans.opacity(0.5))
+//            .background(.jeans.opacity(0.5))
+        .background(.jeans)
             .cornerRadius(15)
             .overlay(
                 RoundedRectangle(cornerRadius: 15)

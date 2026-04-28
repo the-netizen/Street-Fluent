@@ -1,0 +1,116 @@
+{
+    "dialogues": [
+        {
+            "index": 0,
+            "startTime": 0.0,
+            "endTime": 4.0,
+            "originalText": "好，现在我们开始吃披萨",
+            "translatedText": "Well, now we will start to eat the pizza",
+            "wordIds": ["zh_hao3", "zh_xianzai", "zh_women", "zh_kaishi", "zh_chi", "zh_pisa"]
+        },
+        {
+            "index": 1,
+            "startTime": 4.0,
+            "endTime": 6.5,
+            "originalText": "我们有一个披萨party",
+            "translatedText": "We have a pizza party",
+            "wordIds": ["zh_women", "zh_you3", "zh_yige", "zh_pisa"]
+        },
+        {
+            "index": 2,
+            "startTime": 6.5,
+            "endTime": 9.0,
+            "originalText": "我们有三个披萨",
+            "translatedText": "We have 3 pizzas",
+            "wordIds": ["zh_women", "zh_you3", "zh_sange", "zh_pisa"]
+        },
+        {
+            "index": 3,
+            "startTime": 9.0,
+            "endTime": 12.0,
+            "originalText": "这个是蔬菜味儿的",
+            "translatedText": "This one is the vegetable flavour",
+            "wordIds": ["zh_zhege", "zh_shi", "zh_shucai", "zh_weier", "zh_de"]
+        },
+        {
+            "index": 4,
+            "startTime": 12.0,
+            "endTime": 14.0,
+            "originalText": "这个是烧烤味儿的",
+            "translatedText": "This one is the barbeque flavour",
+            "wordIds": ["zh_zhege", "zh_shi", "zh_shaokao", "zh_weier", "zh_de"]
+        },
+        {
+            "index": 5,
+            "startTime": 14.0,
+            "endTime": 17.0,
+            "originalText": "这个是火腿味儿的",
+            "translatedText": "This one is the ham flavour",
+            "wordIds": ["zh_zhege", "zh_shi", "zh_huitui", "zh_weier", "zh_de"]
+        },
+        {
+            "index": 6,
+            "startTime": 17.0,
+            "endTime": 20.0,
+            "originalText": "这上面有很多火腿",
+            "translatedText": "There are many ham pieces on it",
+            "wordIds": ["zh_zhe", "zh_shangmian", "zh_you", "zh_henduo", "zh_huitui"]
+        },
+        {
+            "index": 7,
+            "startTime": 20.0,
+            "endTime": 23.0,
+            "originalText": "还有一个酱，大蒜酱",
+            "translatedText": "There is also a sauce, garlic sauce",
+            "wordIds": ["zh_haiyou", "zh_yige", "zh_jiang", "zh_dasuan", "zh_jiang"]
+        },
+        {
+            "index": 8,
+            "startTime": 23.0,
+            "endTime": 27.0,
+            "originalText": "这是大蒜酱。这是辣椒",
+            "translatedText": "This is the garlic sauce. This is the chilli",
+            "wordIds": ["zh_zhe", "zh_shi", "zh_dasuan", "zh_jiang", "zh_zhe", "zh_shi", "zh_lajiao"]
+        },
+        {
+            "index": 9,
+            "startTime": 27.0,
+            "endTime": 30.0,
+            "originalText": "这上面有很多橄榄",
+            "translatedText": "There are many olives on this one",
+            "wordIds": ["zh_zhe", "zh_shangmian", "zh_you", "zh_henduo", "zh_ganlan"]
+        },
+        {
+            "index": 10,
+            "startTime": 30.0,
+            "endTime": 32.0,
+            "originalText": "这也有一个辣椒",
+            "translatedText": "There is another chilli here",
+            "wordIds": ["zh_zhe", "zh_ye", "zh_you", "zh_yige", "zh_lajiao"]
+        },
+        {
+            "index": 11,
+            "startTime": 32.0,
+            "endTime": 37.0,
+            "originalText": "BBQ - 烧烤酱。烧烤的酱",
+            "translatedText": "BBQ - The barbeque sauce. The sauce for barbeque",
+            "wordIds": ["zh_shaokao", "zh_jiang", "zh_shaokao", "zh_de", "zh_jiang"]
+        },
+        {
+            "index": 12,
+            "startTime": 37.0,
+            "endTime": 44.0,
+            "originalText": "这个是什么酱？Buffalo。我不知道这是什么酱",
+            "translatedText": "What is this sauce? Buffalo. I don't know this sauce",
+            "wordIds": ["zh_zhege", "zh_shi", "zh_shenme", "zh_jiang", "zh_wo", "zh_bu", "zh_zhidao", "zh_zhe", "zh_shi", "zh_shenme", "zh_jiang"]
+        },
+        {
+            "index": 13,
+            "startTime": 44.0,
+            "endTime": 48.0,
+            "originalText": "okay，三个披萨",
+            "translatedText": "okay. 3 pizzas",
+            "wordIds": ["zh_sange", "zh_pisa"]
+        }
+    ]
+}

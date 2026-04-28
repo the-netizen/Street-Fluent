@@ -66,11 +66,15 @@ struct VideoPlayerView: View {
                             DictionaryPopup(word: word) {
                                 viewModel.selectedWord = nil
                             }
-                            .simultaneousGesture(TapGesture().onEnded { }) // absorbs taps on the popup itself
+//                            .simultaneousGesture(TapGesture().onEnded { }) // absorbs taps on the popup itself
                         }
                     }
                     .padding(.top, 3)
                     .padding(.bottom, 8)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        viewModel.selectedWord = nil
+                    }
                 
         }//v
         .background(Color(.systemBackground))

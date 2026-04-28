@@ -14,10 +14,11 @@ struct MainView: View {
                     WeeklyCalendarView(selectedDate: $selectedDate)
                     
                     //Vocabulary flashcards
+                    FlashcardView()
                     
                     // FeaturedVideos
-//                    FeaturedVideos()
-                    VideoBrowsing()
+                    FeaturedVideos()
+//                    VideoBrowsing()
                     
                     Spacer()
                 }
