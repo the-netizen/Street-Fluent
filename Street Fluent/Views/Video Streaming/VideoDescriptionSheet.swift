@@ -3,6 +3,7 @@ import SwiftUI
 struct VideoDescriptionSheet: View {
     let video: Video
     @Binding var startStreaming: Bool  // tells parent to open VideoStreaming
+    @Binding var videoToStream: Video?  // directly set the video to stream
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
@@ -88,6 +89,7 @@ struct VideoDescriptionSheet: View {
                 HStack {
                     Spacer()
                     Button {
+                        videoToStream = video  // Set immediately
                         startStreaming = true
                         dismiss()
                     } label: {
@@ -115,5 +117,5 @@ struct VideoDescriptionSheet: View {
 }
 
 #Preview {
-    VideoDescriptionSheet(video: SampleData.videos[0], startStreaming: .constant(true))
+    VideoDescriptionSheet(video: SampleData.videos[0], startStreaming: .constant(true), videoToStream: .constant(nil))
 }

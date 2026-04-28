@@ -79,16 +79,16 @@ struct VideoCard: View {
                        height: style == .horizontal ? 80 : nil)
                 .clipShape(RoundedRectangle(cornerRadius: 8))
                 
-                if showLevelBadge {
-                    Text(video.level.chineseDisplayName)
-                        .font(.caption2)
-                        .fontWeight(.heavy)
-                        .foregroundColor(.tangerine)
-                        .padding(.horizontal, 6)
-                        .padding(.vertical, 4)
-                    
-                    
-                }
+//                if showLevelBadge {
+//                    Text(video.level.chineseDisplayName)
+//                        .font(.caption2)
+//                        .fontWeight(.heavy)
+//                        .foregroundColor(.tangerine)
+//                        .padding(.horizontal, 6)
+//                        .padding(.vertical, 4)
+//                    
+//                    
+//                }
             }
             
             Text(video.formattedDuration)

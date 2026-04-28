@@ -49,186 +49,522 @@
         "definitions": ["have", "possess", "own"],
         "level": "beginner"
     },
-        {
-            "id": "zh_yige",
-            "word": "一个",
-            "pinyin": "yí gè",
-            "definitions": ["one", "a", "an"],
-            "level": "beginner"
-        },
-        {
-            "id": "zh_pisa",
-            "word": "披萨",
-            "pinyin": "pīsà",
-            "definitions": ["pizza"],
-            "level": "beginner"
-        },
-        {
-            "id": "zh_sange",
-            "word": "三个",
-            "pinyin": "sān gè",
-            "definitions": ["three (of something)"],
-            "level": "beginner"
-        },
-        {
-            "id": "zh_zhege",
-            "word": "这个",
-            "pinyin": "zhège",
-            "definitions": ["this", "this one"],
-            "level": "beginner"
-        },
-        {
-            "id": "zh_shi",
-            "word": "是",
-            "pinyin": "shì",
-            "definitions": ["to be", "is", "am", "are"],
-            "level": "beginner"
-        },
-        {
-            "id": "zh_shucai",
-            "word": "蔬菜",
-            "pinyin": "shūcài",
-            "definitions": ["vegetables", "greens"],
-            "level": "elementary"
-        },
-        {
-            "id": "zh_weier",
-            "word": "味儿",
-            "pinyin": "wèir",
-            "definitions": ["taste", "flavor", "smell"],
-            "level": "intermediate"
-        },
-        {
-            "id": "zh_de",
-            "word": "的",
-            "pinyin": "de",
-            "definitions": ["possessive particle", "of"],
-            "level": "beginner"
-        },
-        {
-            "id": "zh_shaokao",
-            "word": "烧烤",
-            "pinyin": "shāokǎo",
-            "definitions": ["barbecue", "roast"],
-            "level": "intermediate"
-        },
-        {
-            "id": "zh_huitui",
-            "word": "火腿",
-            "pinyin": "huǒtuǐ",
-            "definitions": ["ham"],
-            "level": "intermediate"
-        },
-        {
-            "id": "zh_shangmian",
-            "word": "上面",
-            "pinyin": "shàngmian",
-            "definitions": ["on top of", "above", "surface"],
-            "level": "beginner"
-        },
-        {
-            "id": "zh_you",
-            "word": "有",
-            "pinyin": "yǒu",
-            "definitions": ["to have", "there is", "there are"],
-            "level": "beginner"
-        },
-        {
-            "id": "zh_henduo",
-            "word": "很多",
-            "pinyin": "hěn duō",
-            "definitions": ["many", "a lot"],
-            "level": "beginner"
-        },
-        {
-            "id": "zh_haiyou",
-            "word": "还有",
-            "pinyin": "háiyǒu",
-            "definitions": ["furthermore", "in addition", "still have"],
-            "level": "beginner"
-        },
-        {
-            "id": "zh_jiang",
-            "word": "酱",
-            "pinyin": "jiàng",
-            "definitions": ["sauce", "paste", "jam"],
-            "level": "intermediate"
-        },
-        {
-            "id": "zh_dasuan",
-            "word": "大蒜",
-            "pinyin": "dàsuàn",
-            "definitions": ["garlic"],
-            "level": "intermediate"
-        },
-        {
-            "id": "zh_zhe",
-            "word": "这",
-            "pinyin": "zhè",
-            "definitions": ["this"],
-            "level": "beginner"
-        },
-        {
-            "id": "zh_lajiao",
-            "word": "辣椒",
-            "pinyin": "làjiāo",
-            "definitions": ["hot pepper", "chili"],
-            "level": "intermediate"
-        },
-        {
-            "id": "zh_ganlan",
-            "word": "橄榄",
-            "pinyin": "gǎnlǎn",
-            "definitions": ["olive"],
-            "level": "advanced"
-        },
-        {
-            "id": "zh_ye",
-            "word": "也",
-            "pinyin": "yě",
-            "definitions": ["also", "too"],
-            "level": "beginner"
-        },
-        {
-            "id": "zh_shenme",
-            "word": "什么",
-            "pinyin": "shénme",
-            "definitions": ["what"],
-            "level": "beginner"
-        },
-        {
-            "id": "zh_wo",
-            "word": "我",
-            "pinyin": "wǒ",
-            "definitions": ["I", "me"],
-            "level": "beginner"
-        },
-        {
-            "id": "zh_bu",
-            "word": "不",
-            "pinyin": "bù",
-            "definitions": ["not", "no"],
-            "level": "beginner"
-        },
-        {
-            "id": "zh_zhidao",
-            "word": "知道",
-            "pinyin": "zhīdào",
-            "definitions": ["to know", "to be aware of"],
-            "level": "beginner"
-        },
-        {
-            "id": "zh_xuexi",
-            "word": "学习",
-            "pinyin": "xuéxí",
-            "definitions": ["to study", "to learn"],
-            "level": "beginner"
-        },
-        {
-            "id": "zh_mianbao",
-            "word": "面包",
-            "pinyin": "miànbāo",
-            "definitions": ["bread"],
-            "level": "beginner"
-        }
+    {
+        "id": "zh_yige",
+        "word": "一个",
+        "pinyin": "yí gè",
+        "definitions": ["one", "a", "an"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_pisa",
+        "word": "披萨",
+        "pinyin": "pīsà",
+        "definitions": ["pizza"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_sange",
+        "word": "三个",
+        "pinyin": "sān gè",
+        "definitions": ["three (of something)"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_zhege",
+        "word": "这个",
+        "pinyin": "zhège",
+        "definitions": ["this", "this one"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_shi",
+        "word": "是",
+        "pinyin": "shì",
+        "definitions": ["to be", "is", "am", "are"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_shucai",
+        "word": "蔬菜",
+        "pinyin": "shūcài",
+        "definitions": ["vegetables", "greens"],
+        "level": "elementary"
+    },
+    {
+        "id": "zh_weier",
+        "word": "味儿",
+        "pinyin": "wèir",
+        "definitions": ["taste", "flavor", "smell"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_de",
+        "word": "的",
+        "pinyin": "de",
+        "definitions": ["possessive particle", "of"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_shaokao",
+        "word": "烧烤",
+        "pinyin": "shāokǎo",
+        "definitions": ["barbecue", "roast"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_huitui",
+        "word": "火腿",
+        "pinyin": "huǒtuǐ",
+        "definitions": ["ham"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_shangmian",
+        "word": "上面",
+        "pinyin": "shàngmian",
+        "definitions": ["on top of", "above", "surface"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_you",
+        "word": "有",
+        "pinyin": "yǒu",
+        "definitions": ["to have", "there is", "there are"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_henduo",
+        "word": "很多",
+        "pinyin": "hěn duō",
+        "definitions": ["many", "a lot"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_haiyou",
+        "word": "还有",
+        "pinyin": "háiyǒu",
+        "definitions": ["furthermore", "in addition", "still have"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_jiang",
+        "word": "酱",
+        "pinyin": "jiàng",
+        "definitions": ["sauce", "paste", "jam"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_dasuan",
+        "word": "大蒜",
+        "pinyin": "dàsuàn",
+        "definitions": ["garlic"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_zhe",
+        "word": "这",
+        "pinyin": "zhè",
+        "definitions": ["this"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_lajiao",
+        "word": "辣椒",
+        "pinyin": "làjiāo",
+        "definitions": ["hot pepper", "chili"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_ganlan",
+        "word": "橄榄",
+        "pinyin": "gǎnlǎn",
+        "definitions": ["olive"],
+        "level": "advanced"
+    },
+    {
+        "id": "zh_ye",
+        "word": "也",
+        "pinyin": "yě",
+        "definitions": ["also", "too"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_shenme",
+        "word": "什么",
+        "pinyin": "shénme",
+        "definitions": ["what"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_wo",
+        "word": "我",
+        "pinyin": "wǒ",
+        "definitions": ["I", "me"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_bu",
+        "word": "不",
+        "pinyin": "bù",
+        "definitions": ["not", "no"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_zhidao",
+        "word": "知道",
+        "pinyin": "zhīdào",
+        "definitions": ["to know", "to be aware of"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_xuexi",
+        "word": "学习",
+        "pinyin": "xuéxí",
+        "definitions": ["to study", "to learn"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_mianbao",
+        "word": "面包",
+        "pinyin": "miànbāo",
+        "definitions": ["bread"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_xinnian",
+        "word": "新年",
+        "pinyin": "xīnnián",
+        "definitions": ["New Year"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_kuaile",
+        "word": "快乐",
+        "pinyin": "kuàilè",
+        "definitions": ["happy", "joyful", "merry"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_xiwang",
+        "word": "希望",
+        "pinyin": "xīwàng",
+        "definitions": ["to hope", "wish", "hope"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_ni",
+        "word": "你",
+        "pinyin": "nǐ",
+        "definitions": ["you"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_meitian",
+        "word": "每天",
+        "pinyin": "měitiān",
+        "definitions": ["every day"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_dou",
+        "word": "都",
+        "pinyin": "dōu",
+        "definitions": ["all", "both", "entirely (often used for emphasis)"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_kaixin",
+        "word": "开心",
+        "pinyin": "kāixīn",
+        "definitions": ["happy", "joyous", "glad"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_xingfu",
+        "word": "幸福",
+        "pinyin": "xìngfú",
+        "definitions": ["blessed", "happiness", "well-being"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_he",
+        "word": "和",
+        "pinyin": "hé",
+        "definitions": ["and", "with"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_liaotian",
+        "word": "聊天",
+        "pinyin": "liáotiān",
+        "definitions": ["to chat"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_zhende",
+        "word": "真的",
+        "pinyin": "zhēn de",
+        "definitions": ["really", "truly"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_hen",
+        "word": "很",
+        "pinyin": "hěn",
+        "definitions": ["very", "quite"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_xihuan",
+        "word": "喜欢",
+        "pinyin": "xǐhuan",
+        "definitions": ["to like"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_zaihu",
+        "word": "在乎",
+        "pinyin": "zàihu",
+        "definitions": ["to care about", "to mind"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_xin",
+        "word": "新",
+        "pinyin": "xīn",
+        "definitions": ["new"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_yinian",
+        "word": "一年",
+        "pinyin": "yì nián",
+        "definitions": ["one year"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_neng",
+        "word": "能",
+        "pinyin": "néng",
+        "definitions": ["can", "to be able to"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_yizhi",
+        "word": "一直",
+        "pinyin": "yìzhí",
+        "definitions": ["always", "continuously"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_haohao",
+        "word": "好好",
+        "pinyin": "hǎohǎo",
+        "definitions": ["well", "carefully", "properly"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_xiangchu",
+        "word": "相处",
+        "pinyin": "xiāngchǔ",
+        "definitions": ["to get along", "to interact"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_tiantian",
+        "word": "天天",
+        "pinyin": "tiāntiān",
+        "definitions": ["every day"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_shuoshuohua",
+        "word": "说说话",
+        "pinyin": "shuō shuo huà",
+        "definitions": ["to speak a little", "to have a chat"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_liaoliaotian",
+        "word": "聊聊天", "pinyin": "liáo liao tiān",
+        "definitions": ["to chat a bit", "to have a little chat"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_yuanri",
+        "word": "元日",
+        "pinyin": "Yuánrì",
+        "definitions": ["New Year's Day (in the lunar calendar)"],
+        "level": "advanced"
+    },
+    {
+        "id": "zh_song",
+        "word": "宋",
+        "pinyin": "Sòng",
+        "definitions": ["Song Dynasty"],
+        "level": "advanced"
+    },
+    {
+        "id": "zh_wanganshi",
+        "word": "王安石",
+        "pinyin": "Wáng Ānshí",
+        "definitions": ["Wang Anshi (famous Chinese poet and politician)"],
+        "level": "advanced"
+    },
+    {
+        "id": "zh_baozhu",
+        "word": "爆竹",
+        "pinyin": "bàozhú",
+        "definitions": ["firecracker"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_sheng",
+        "word": "声",
+        "pinyin": "shēng",
+        "definitions": ["sound", "voice"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_zhong",
+        "word": "中",
+        "pinyin": "zhōng",
+        "definitions": ["in", "amidst", "middle"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_yisui",
+        "word": "一岁",
+        "pinyin": "yī suì",
+        "definitions": ["one year", "a year of age"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_chu",
+        "word": "除",
+        "pinyin": "chú",
+        "definitions": ["to pass", "to remove", "to get rid of"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_chunfeng",
+        "word": "春风",
+        "pinyin": "chūnfēng",
+        "definitions": ["spring breeze"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_song",
+        "word": "送",
+        "pinyin": "sòng",
+        "definitions": ["to deliver", "to bring", "to send"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_nuan",
+        "word": "暖",
+        "pinyin": "nuǎn",
+        "definitions": ["warm", "warmth"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_ru",
+        "word": "入",
+        "pinyin": "rù",
+        "definitions": ["to enter", "into"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_tusu",
+        "word": "屠苏",
+        "pinyin": "túsū",
+        "definitions": ["Tusu wine (a medicinal wine traditionally drunk on New Year's Day)"],
+        "level": "advanced"
+    },
+    {
+        "id": "zh_qian",
+        "word": "千",
+        "pinyin": "qiān",
+        "definitions": ["thousand"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_men",
+        "word": "门",
+        "pinyin": "mén",
+        "definitions": ["door", "gate"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_wan",
+        "word": "万",
+        "pinyin": "wàn",
+        "definitions": ["ten thousand"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_hu",
+        "word": "户",
+        "pinyin": "hù",
+        "definitions": ["household", "door"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_tongtong",
+        "word": "曈曈",
+        "pinyin": "tóngtóng",
+        "definitions": ["bright", "brilliant (referring to sunlight)"],
+        "level": "advanced"
+    },
+    {
+        "id": "zh_ri",
+        "word": "日",
+        "pinyin": "rì",
+        "definitions": ["sun", "day"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_zong",
+        "word": "总",
+        "pinyin": "zǒng",
+        "definitions": ["always", "in every case", "everyone"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_ba_particle",
+        "word": "把",
+        "pinyin": "bǎ",
+        "definitions": ["particle marking the following noun as a direct object"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_tao",
+        "word": "桃",
+        "pinyin": "táo",
+        "definitions": ["peach", "peachwood charm"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_huan",
+        "word": "换",
+        "pinyin": "huàn",
+        "definitions": ["to change", "to replace"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_jiu",
+        "word": "旧",
+        "pinyin": "jiù",
+        "definitions": ["old", "past"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_fu",
+        "word": "符",
+        "pinyin": "fú",
+        "definitions": ["charm", "amulet", "symbol"],
+        "level": "advanced"
+    }
+        
 ]

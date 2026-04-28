@@ -1,2 +1,44 @@
-#  <#Title#>
-
+{
+    "dialogues": [
+        {
+            "index": 0,
+            "startTime": 0.0,
+            "endTime": 0.0,
+            "originalText": "元日 宋·王安石",
+            "translatedText": "\"Yuan Ri\" by Wang Anshi (Song Dynasty)",
+            "wordIds": ["zh_yuanri", "zh_song", "zh_wanganshi"]
+        },
+        {
+            "index": 1,
+            "startTime": 0.0,
+            "endTime": 0.0,
+            "originalText": "爆竹声中一岁除，",
+            "translatedText": "Amidst the crackling of firecrackers, the old year departs;",
+            "wordIds": ["zh_baozhu", "zh_sheng", "zh_zhong", "zh_yisui", "zh_chu"]
+        },
+        {
+            "index": 2,
+            "startTime": 0.0,
+            "endTime": 0.0,
+            "originalText": "春风送暖入屠苏。",
+            "translatedText": "The spring breeze brings warmth to the New Year's wine.",
+            "wordIds": ["zh_chunfeng", "zh_song", "zh_nuan", "zh_ru", "zh_tusu"]
+        },
+        {
+            "index": 3,
+            "startTime": 0.0,
+            "endTime": 0.0,
+            "originalText": "千门万户曈曈日，",
+            "translatedText": "The sun shines brightly on thousands of doors and windows;",
+            "wordIds": ["zh_qian", "zh_men", "zh_wan", "zh_hu", "zh_tongtong", "zh_ri"]
+        },
+        {
+            "index": 4,
+            "startTime": 0.0,
+            "endTime": 0.0,
+            "originalText": "总把新桃换旧符。",
+            "translatedText": "Everyone replaces the old peachwood charms with new ones.",
+            "wordIds": ["zh_zong", "zh_ba_particle", "zh_xin", "zh_tao", "zh_huan", "zh_jiu", "zh_fu"]
+        }
+    ]
+}

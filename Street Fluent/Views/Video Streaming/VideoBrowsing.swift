@@ -43,17 +43,13 @@ struct VideoBrowsing: View {
 //        .navigationTitle("Video Browsing")
 //        .navigationBarTitleDisplayMode(.inline)
         .sheet(item: $selectedVideo) { video in
-            VideoDescriptionSheet(video: video, startStreaming: $showStreaming)
+            VideoDescriptionSheet(video: video, startStreaming: $showStreaming, videoToStream: $videoToStream)
                 .presentationDetents([.medium, .large])
-                .onDisappear {
-                    if showStreaming {
-                        videoToStream = video
-                    }
-                }
         }
         .navigationDestination(isPresented: $showStreaming) {
             if let video = videoToStream {
                 VideoStreaming(video: video)
+                    .id(video.id) // create fresh view for each video id changed
             }
         }
     }

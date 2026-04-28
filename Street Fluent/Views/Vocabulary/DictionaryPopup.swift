@@ -1,8 +1,18 @@
 import SwiftUI
+import SwiftData
 
 struct DictionaryPopup: View {
     let word: Vocabulary
     var onDismiss: () -> Void
+    
+    // to save word to disk, we need model context
+    @Environment(\.modelContext) private var modelContext
+        
+    // check if already bookmarked to toggle icon
+    @Query private var allBookmarks: [BookmarkedWords]
+    private var isBookmarked: Bool {
+        allBookmarks.contains { $0.wordId == word.id }
+    }
     
     var body: some View {
         HStack(spacing: 0){
@@ -24,7 +34,7 @@ struct DictionaryPopup: View {
                .frame(width: 1)
                .padding(.vertical, 8)
             
-            // dictionary
+            // dictionary scroll
             ScrollView{
                 VStack(alignment: .leading, spacing: 2){
                     ForEach(word.definitions, id: \.self) {definition in
@@ -46,9 +56,9 @@ struct DictionaryPopup: View {
             
             // bookmark
             Button {
-                // bookmark word
+                toggleBookmark()
             } label: {
-                Image(systemName: "bookmark")
+                Image(systemName: isBookmarked ? "bookmark.fill" : "bookmark")
                     .font(.title2)
                     .foregroundColor(.primary)
             }
@@ -64,6 +74,17 @@ struct DictionaryPopup: View {
         .padding(.horizontal, 8)
         .frame(width: 300)
 
+    }
+    private func toggleBookmark() {
+        if let existing = allBookmarks.first(where: { $0.wordId == word.id }) {
+            // Already bookmarked → remove it
+            modelContext.delete(existing)
+        } else {
+            // Not bookmarked → save it
+            let bookmark = BookmarkedWords(from: word)
+            modelContext.insert(bookmark)
+        }
+        // SwiftData saves automatically
     }
 }
 

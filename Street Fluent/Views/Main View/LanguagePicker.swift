@@ -5,7 +5,8 @@ struct LanguagePickerButton: View {
     
     var body: some View {
         Menu {
-            ForEach(TargetLanguage.allCases) { language in
+            // only chinese for now
+            ForEach(TargetLanguage.allCases.filter { $0 == .chinese }) { language in
                 Button {
                     settings.selectedLanguage = language
                 } label: {
@@ -16,7 +17,19 @@ struct LanguagePickerButton: View {
                         }
                     }
                 }
+            }//language selection
+            
+            // coming soon button
+            Button {
+                //
+            } label: {
+                HStack {
+                    Text("Coming Soon")
+                        .foregroundColor(.secondary)
+                }
             }
+            .disabled(true)
+            
         } label: {
             // Flag
             HStack(spacing: 2) {

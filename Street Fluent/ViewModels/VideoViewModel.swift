@@ -75,6 +75,11 @@ class VideoViewModel{
     }
     
     func setupPlayer() {
+        guard !video.videoURL.isEmpty else {
+            print("⚠️ Video URL is empty for: \(video.title)")
+            return
+        } //if no video found, exit
+        
         // Try .mov first, then .mp4
         let url = Bundle.main.url(forResource: video.videoURL, withExtension: "mov") ??
                   Bundle.main.url(forResource: video.videoURL, withExtension: "mp4")

@@ -57,17 +57,13 @@ struct FeaturedVideos: View {
             )
             .padding(20)
             .sheet(item: $selectedVideo) { video in
-                VideoDescriptionSheet(video: video, startStreaming: $navigateToStreaming)
+                VideoDescriptionSheet(video: video, startStreaming: $navigateToStreaming, videoToStream: $videoToStream)
                     .presentationDetents([.medium, .large]) //allow dynamic sizes
-                    .onDisappear {
-                        if navigateToStreaming {
-                            videoToStream = video //save video before sheet dismisses
-                        }
-                    }
             }
             .navigationDestination(isPresented: $navigateToStreaming) {
                 if let video = videoToStream {
                    VideoStreaming(video: video)
+                       .id(video.id) // create fresh view for each video id changes
                }
             }
     }//body

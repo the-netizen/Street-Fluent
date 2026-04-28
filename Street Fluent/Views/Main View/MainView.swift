@@ -28,9 +28,9 @@ struct MainView: View {
                 ToolbarItem(placement: .topBarLeading) {
                     LanguagePickerButton(settings: settings)
                 }
-                ToolbarItem(placement: .topBarTrailing) {
-                    ProfileButton()
-                }
+//                ToolbarItem(placement: .topBarTrailing) {
+//                    ProfileButton()
+//                }
             }
         }
     }

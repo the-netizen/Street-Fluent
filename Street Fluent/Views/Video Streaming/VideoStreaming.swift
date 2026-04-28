@@ -23,12 +23,12 @@ struct VideoStreaming: View {
                 ScoreCardOverlay(viewModel: viewModel, video: video)
             }
         }//z
-        .contentShape(Rectangle())
-            .simultaneousGesture(
-                TapGesture().onEnded {
-                    viewModel.selectedWord = nil
-                }
-            ) //dismiss dictionary popup when tapped anywhere
+//        .contentShape(Rectangle())
+//            .simultaneousGesture(
+//                TapGesture().onEnded {
+//                    viewModel.selectedWord = nil
+//                }
+//            ) //dismiss dictionary popup when tapped anywhere
         .toolbar(.hidden, for: .tabBar)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
