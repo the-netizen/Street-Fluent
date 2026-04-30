@@ -13,6 +13,8 @@ struct MainView: View {
                     //WeeklyCalenderView
                     WeeklyCalendarView(selectedDate: $selectedDate)
                     
+                    //history per day
+                    DailyHistoryView(selectedDate: selectedDate)
                     //Vocabulary flashcards
                     FlashcardView()
                     

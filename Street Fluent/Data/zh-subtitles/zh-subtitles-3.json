@@ -1,1 +1,84 @@
-
+{
+    "dialogues": [
+        {
+            "index": 0,
+            "startTime": 0.0,
+            "endTime": 4.0,
+            "originalText": "这边是沙特牛奶区。",
+            "translatedText": "This is the Saudi milk section.",
+            "wordIds": ["zh_zhebian", "zh_shi", "zh_shate", "zh_niunai", "zh_qu"]
+        },
+        {
+            "index": 1,
+            "startTime": 4.0,
+            "endTime": 11.0,
+            "originalText": "这一款牛奶是我最喜欢的，",
+            "translatedText": "This milk is my favorite.",
+            "wordIds": ["zh_zhe", "zh_yikuan", "zh_niunai", "zh_shi", "zh_wo", "zh_zui", "zh_xihuan", "zh_de"]
+        },
+        {
+            "index": 2,
+            "startTime": 11.0,
+            "endTime": 15.0,
+            "originalText": "这里是沙特的酸菜区，",
+            "translatedText": "Here is the Saudi pickled vegetable section.",
+            "wordIds": ["zh_zheli", "zh_shi", "zh_shate", "zh_de", "zh_suancai", "zh_qu"]
+        },
+        {
+            "index": 3,
+            "startTime": 15.0,
+            "endTime": 18.5,
+            "originalText": "这个是黄瓜，是沙特的装黄瓜，",
+            "translatedText": "This is cucumber, Saudi pickled cucumber.",
+            "wordIds": ["zh_zhege", "zh_shi", "zh_huanggua", "zh_shi", "zh_shate", "zh_de", "zh_zhuang", "zh_huanggua"]
+        },
+        {
+            "index": 4,
+            "startTime": 18.5,
+            "endTime": 24.0,
+            "originalText": "然后这个是这边的黄豆也是酸的酸黄豆，",
+            "translatedText": "Then these are the soybeans here, which are also sour, pickled soybeans.",
+            "wordIds": ["zh_ranhou", "zh_zhege", "zh_shi", "zh_zhebian", "zh_de", "zh_huangdou", "zh_ye", "zh_shi", "zh_suan", "zh_de", "zh_suan", "zh_huangdou"]
+        },
+        {
+            "index": 5,
+            "startTime": 24.0,
+            "endTime": 28.0,
+            "originalText": "这个特别好吃，这个非常好吃，",
+            "translatedText": "These are especially delicious, very delicious.",
+            "wordIds": ["zh_zhege", "zh_tebie", "zh_haochi", "zh_zhege", "zh_feichang", "zh_haochi"]
+        },
+        {
+            "index": 6,
+            "startTime": 28.0,
+            "endTime": 31.0,
+            "originalText": "这一块是沙特的鸡肉区，",
+            "translatedText": "This area is the Saudi chicken section.",
+            "wordIds": ["zh_zhe", "zh_yikuai", "zh_shi", "zh_shate", "zh_de", "zh_jirou", "zh_qu"]
+        },
+        {
+            "index": 7,
+            "startTime": 31.0,
+            "endTime": 34.0,
+            "originalText": "这个是鸡腿肉",
+            "translatedText": "This is chicken thigh meat ",
+            "wordIds": ["zh_zhege", "zh_shi", "zh_jituirou", "zh_ranhou", "zh_haiyou", "zh_jixiongrou"]
+        },
+        {
+            "index": 8,
+            "startTime": 34.0,
+            "endTime": 37.0,
+            "originalText": "然后还有鸡胸肉。",
+            "translatedText": "and then there's also chicken breast.",
+            "wordIds": ["zh_ranhou", "zh_haiyou", "zh_jixiongrou"]
+        },
+        {
+            "index": 9,
+            "startTime": 37.0,
+            "endTime": 42.5,
+            "originalText": "还有鸡的肝脏",
+            "translatedText": "And also chicken liver.",
+            "wordIds": ["zh_haiyou", "zh_ji", "zh_de", "zh_ganzang"]
+        }
+    ]
+}

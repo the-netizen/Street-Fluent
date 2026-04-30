@@ -565,6 +565,160 @@
         "pinyin": "fú",
         "definitions": ["charm", "amulet", "symbol"],
         "level": "advanced"
+    },
+    {
+        "id": "zh_zhebian",
+        "word": "这边",
+        "pinyin": "zhèbiān",
+        "definitions": ["this side", "here"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_shate",
+        "word": "沙特",
+        "pinyin": "Shātè",
+        "definitions": ["Saudi Arabia", "Saudi"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_niunai",
+        "word": "牛奶",
+        "pinyin": "niúnǎi",
+        "definitions": ["milk"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_qu",
+        "word": "区",
+        "pinyin": "qū",
+        "definitions": ["area", "region", "section"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_yikuan",
+        "word": "一款",
+        "pinyin": "yì kuǎn",
+        "definitions": ["one kind", "one type (measure word for products)"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_zui",
+        "word": "最",
+        "pinyin": "zuì",
+        "definitions": ["most", "to the greatest extent"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_zheli",
+        "word": "这里",
+        "pinyin": "zhèlǐ",
+        "definitions": ["here"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_suancai",
+        "word": "酸菜",
+        "pinyin": "suāncài",
+        "definitions": ["pickled vegetables", "sauerkraut"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_huanggua",
+        "word": "黄瓜",
+        "pinyin": "huángguā",
+        "definitions": ["cucumber"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_zhuang",
+        "word": "装",
+        "pinyin": "zhuāng",
+        "definitions": ["packed", "contained", "jarred"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_ranhou",
+        "word": "然后",
+        "pinyin": "ránhòu",
+        "definitions": ["then", "afterwards"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_huangdou",
+        "word": "黄豆",
+        "pinyin": "huángdòu",
+        "definitions": ["soybean"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_suan",
+        "word": "酸",
+        "pinyin": "suān",
+        "definitions": ["sour", "tart"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_tebie",
+        "word": "特别",
+        "pinyin": "tèbié",
+        "definitions": ["especially", "special"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_haochi",
+        "word": "好吃",
+        "pinyin": "hǎochī",
+        "definitions": ["delicious", "tasty"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_feichang",
+        "word": "非常",
+        "pinyin": "fēicháng",
+        "definitions": ["extremely", "very"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_yikuai",
+        "word": "一块",
+        "pinyin": "yí kuài",
+        "definitions": ["one piece", "one area/block"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_jirou",
+        "word": "鸡肉",
+        "pinyin": "jīròu",
+        "definitions": ["chicken meat"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_jituirou",
+        "word": "鸡腿肉",
+        "pinyin": "jītuǐròu",
+        "definitions": ["chicken thigh meat", "chicken leg meat"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_jixiongrou",
+        "word": "鸡胸肉",
+        "pinyin": "jīxiōngròu",
+        "definitions": ["chicken breast meat"],
+        "level": "intermediate"
+    },
+    {
+        "id": "zh_ji",
+        "word": "鸡",
+        "pinyin": "jī",
+        "definitions": ["chicken"],
+        "level": "beginner"
+    },
+    {
+        "id": "zh_ganzang",
+        "word": "肝脏",
+        "pinyin": "gānzàng",
+        "definitions": ["liver (anatomy)"],
+        "level": "advanced"
     }
         
 ]

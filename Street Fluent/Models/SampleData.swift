@@ -4,14 +4,6 @@ enum SampleData {
    
    
     static let videos: [Video] = [
-//        Video(
-//            id: UUID(), title: "新年快乐",
-//            description: "Message to a friend for new years.",
-//            thumbnailURL: "Sample-image-1.png", videoURL: "Sample-video-1",
-//            duration: 19, language: .chinese, level: .beginner,
-//            dialogues: SubtitleLoader.loadDialogues(for: "zh-subtitles-1"),
-//            isFeatured: true, dateAdded: Date()
-//        ),
         Video(
             id: UUID(), title: "中国人在吃披萨",
             description: "Trying Saudi pizza for the first time.",
@@ -25,7 +17,7 @@ enum SampleData {
             id: UUID(), title: "和朋友去超市",
             description: "Describing my favourite food items in Saudi supermarket.",
             thumbnailURL: "Sample-image-3.png", videoURL: "Sample-video-3",
-            duration: 44, language: .chinese, level: .beginner,
+            duration: 44, language: .chinese, level: .elementary,
             dialogues: SubtitleLoader.loadDialogues(for: "zh-subtitles-3"), isFeatured: true,
             dateAdded: Calendar.current.date(byAdding: .day, value: -5, to: Date())!
         ),
@@ -38,17 +30,24 @@ enum SampleData {
             isFeatured: true,
             dateAdded: Calendar.current.date(byAdding: .day, value: -2, to: Date())!
         ),
-        
+        Video(
+            id: UUID(), title: "新年快乐",
+            description: "Message to a friend for new years.",
+            thumbnailURL: "Sample-image-1.png", videoURL: "Sample-video-1",
+            duration: 19, language: .chinese, level: .beginner,
+            dialogues: SubtitleLoader.loadDialogues(for: "zh-subtitles-1"),
+            isFeatured: false, dateAdded: Date()
+        ),
         
         // === HSK 2 / Elementary ===
-        Video(
-            id: UUID(), title: "和朋友去超市",
-            description: "Friends at a hotpot restaurant. Slang, jokes, and real conversational Mandarin.",
-            thumbnailURL: "Sample-image-5.JPG", videoURL: "",
-            duration: 198, language: .chinese, level: .elementary,
-            dialogues: [], isFeatured: false,
-            dateAdded: Calendar.current.date(byAdding: .day, value: -8, to: Date())!
-        ),
+//        Video(
+//            id: UUID(), title: "和朋友去超市",
+//            description: "Friends at a hotpot restaurant. Slang, jokes, and real conversational Mandarin.",
+//            thumbnailURL: "Sample-image-5.JPG", videoURL: "",
+//            duration: 198, language: .chinese, level: .elementary,
+//            dialogues: [], isFeatured: false,
+//            dateAdded: Calendar.current.date(byAdding: .day, value: -8, to: Date())!
+//        ),
 //        Video(
 //            id: UUID(), title: "坐地铁去学校",
 //            description: "Taking the subway to school. Directions, transportation words, and casual speech.",
@@ -94,24 +93,24 @@ enum SampleData {
 //            dateAdded: Calendar.current.date(byAdding: .day, value: -22, to: Date())!
 //        ),
         // === English ===
-        Video(
-            id: UUID(), title: "Morning Routine",
-            description: "Placeholder video in English.",
-            thumbnailURL: "Sample-image-3.HEIC", videoURL: "",  // add real video later
-            duration: 120, language: .english, level: .beginner,
-            dialogues: [], isFeatured: true,
-            dateAdded: Date()
-        ),
-
-        // === Arabic ===
-        Video(
-            id: UUID(), title: "في المطعم",
-            description: "Placeholer Video in Arabic.",
-            thumbnailURL: "Sample-image-11.HEIC", videoURL: "",
-            duration: 90, language: .arabic, level: .beginner,
-            dialogues: [], isFeatured: true,
-            dateAdded: Date()
-        ),
+//        Video(
+//            id: UUID(), title: "Morning Routine",
+//            description: "Placeholder video in English.",
+//            thumbnailURL: "Sample-image-3.HEIC", videoURL: "",  // add real video later
+//            duration: 120, language: .english, level: .beginner,
+//            dialogues: [], isFeatured: true,
+//            dateAdded: Date()
+//        ),
+//
+//        // === Arabic ===
+//        Video(
+//            id: UUID(), title: "في المطعم",
+//            description: "Placeholer Video in Arabic.",
+//            thumbnailURL: "Sample-image-11.HEIC", videoURL: "",
+//            duration: 90, language: .arabic, level: .beginner,
+//            dialogues: [], isFeatured: true,
+//            dateAdded: Date()
+//        ),
     ]
     
     static var featuredVideos: [Video] {
@@ -122,4 +121,8 @@ enum SampleData {
         guard let level else { return videos }
         return videos.filter { $0.level == level }
     }
+    
+    static func video(for id: UUID) -> Video? {
+        videos.first { $0.id == id }
+    }//allows looking up a video by id to find info to display
 }

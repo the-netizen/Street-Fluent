@@ -31,9 +31,8 @@ class VideoSession {
 class StudyRecord {
     var id: UUID
     var date: Date
-    //deleting studyrecord deletes videosession saved
-    @Relationship(deleteRule: .cascade) var sessions: [VideoSession]
-    
+    var sessions: [VideoSession] = [] //save sessions in array
+
     var didStudy: Bool { !sessions.isEmpty }
     
     // avg scores across all videos that day

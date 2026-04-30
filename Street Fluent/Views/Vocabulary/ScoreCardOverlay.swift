@@ -1,11 +1,11 @@
 import SwiftUI
+import SwiftData
 
-// Full screen overlay shown when user completes a video.
-// Dims content underneath, shows scorecard in centre.
-// Tapping outside the card dismisses it.
+// final score card after video ends
 struct ScoreCardOverlay: View {
     var viewModel: VideoViewModel
     let video: Video
+    @Environment(\.modelContext) private var modelContext //save vid session when don
     
     var body: some View {
         ZStack {
@@ -21,9 +21,7 @@ struct ScoreCardOverlay: View {
         }
         .animation(.easeInOut(duration: 0.2), value: viewModel.showScoreCard)
     }
-    
-    // MARK: - Score Card
-    
+        
     private var scoreCard: some View {
         VStack(spacing: 0) {
             gaugeSection
@@ -41,9 +39,7 @@ struct ScoreCardOverlay: View {
         )
         .padding(.horizontal, 24)
     }
-    
-    // MARK: - Gauge
-    
+        
     private var gaugeSection: some View {
         ZStack {
             // Background arc
@@ -64,18 +60,7 @@ struct ScoreCardOverlay: View {
         }
         .frame(width: 220, height: 120)
     }
-    
-    private var scoreColor: Color {
-        switch viewModel.overallScore {
-        case 80...100: .green
-        case 60...79: .yellow  
-        case 40...59: .orange
-        default: .red
-        }
-    }
-    
-    // MARK: - Stats
-    
+        
     private var statsSection: some View {
         VStack(spacing: 50) {
             VStack(spacing: 10) {
@@ -102,7 +87,7 @@ struct ScoreCardOverlay: View {
                 Button(action: {
                     viewModel.showScoreCard = false
                     //save the score to display on mainView
-                    //go back to mainView
+                    saveSession()
                 }) {
                     Text("Done")
                         .fontWeight(.semibold)
@@ -125,7 +110,27 @@ struct ScoreCardOverlay: View {
                 .foregroundStyle(.secondary)
         }
     }
-}
+    
+    private var scoreColor: Color {
+        switch viewModel.overallScore {
+        case 80...100: .green
+        case 60...79: .yellow
+        case 40...59: .orange
+        default: .red
+        }
+    }
+    
+    private func saveSession() {
+        let session = VideoSession(
+            videoID: video.id,
+            videoTitle: video.title,
+            dialoguesAttempted: viewModel.perDialogueScores.count,
+            dialoguesTotal: video.dialogues.count,
+            avgScore: viewModel.overallScore
+        )
+        modelContext.insert(session)
+    }
+}//score card
 
 // Draws the top half of a circle left → right
 private struct SemiCircleArc: Shape {
@@ -141,6 +146,7 @@ private struct SemiCircleArc: Shape {
         return path
     }
 }
+
 
 #Preview {
     ZStack {

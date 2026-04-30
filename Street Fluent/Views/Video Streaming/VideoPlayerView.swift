@@ -60,7 +60,7 @@ struct VideoPlayerView: View {
                 Text(viewModel.currentTranslation)
                     .font(.caption)
                     .foregroundStyle(.secondary)
-                    .padding(15)
+                    .padding(10)
                     .overlay(alignment: .center) { //dictionary popup
                         if let word = viewModel.selectedWord {
                             DictionaryPopup(word: word) {
@@ -83,7 +83,7 @@ struct VideoPlayerView: View {
             RoundedRectangle(cornerRadius: 20)
                 .stroke(Color(.systemBackground), lineWidth: 3)
         )
-        .padding(.horizontal, 16)
+        .padding(.horizontal, 16) //box padding
     }
 }
 
