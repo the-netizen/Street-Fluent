@@ -3,6 +3,7 @@ import AVKit
 
 struct VideoPlayerView: View {
     var viewModel: VideoViewModel
+    @Environment(\.modelContext) private var modelContext
     
     var body: some View {
         VStack(spacing: 0){
@@ -53,28 +54,32 @@ struct VideoPlayerView: View {
                     }
                 }//h
                 .frame(maxWidth: .infinity)
-                .padding(.horizontal, 10)
+                .padding(.horizontal, 8)
                 .padding(.top, 10)
                 
                 // Translation row
+            ZStack(alignment: .center) {
                 Text(viewModel.currentTranslation)
                     .font(.caption)
                     .foregroundStyle(.secondary)
+                    .lineLimit(nil)
                     .padding(10)
-                    .overlay(alignment: .center) { //dictionary popup
-                        if let word = viewModel.selectedWord {
-                            DictionaryPopup(word: word) {
-                                viewModel.selectedWord = nil
-                            }
-//                            .simultaneousGesture(TapGesture().onEnded { }) // absorbs taps on the popup itself
-                        }
-                    }
-                    .padding(.top, 3)
-                    .padding(.bottom, 8)
-                    .contentShape(Rectangle())
-                    .onTapGesture {
+                
+                if let word = viewModel.selectedWord {
+                    DictionaryPopup(word: word) {
                         viewModel.selectedWord = nil
                     }
+                    .id(word.id)
+                    .environment(\.modelContext, modelContext)
+                }
+            }
+            .frame(height: 50)
+            .padding(.top, 4)
+            .padding(.bottom, 9)
+            .contentShape(Rectangle())
+            .onTapGesture {
+                viewModel.selectedWord = nil
+            }
                 
         }//v
         .background(Color(.systemBackground))

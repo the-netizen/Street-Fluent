@@ -6,10 +6,11 @@ struct ScoreCardOverlay: View {
     var viewModel: VideoViewModel
     let video: Video
     @Environment(\.modelContext) private var modelContext //save vid session when don
+    @Environment(\.dismiss) private var dismiss // for navigation back
     
     var body: some View {
         ZStack {
-            // Dimmed background — tap to dismiss
+            //bg tap to dismiss
             Color.black.opacity(0.6)
                 .ignoresSafeArea()
                 .onTapGesture {
@@ -88,6 +89,8 @@ struct ScoreCardOverlay: View {
                     viewModel.showScoreCard = false
                     //save the score to display on mainView
                     saveSession()
+                    // Navigate back to main page
+                    dismiss()
                 }) {
                     Text("Done")
                         .fontWeight(.semibold)

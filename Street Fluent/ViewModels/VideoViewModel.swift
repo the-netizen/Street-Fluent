@@ -91,6 +91,14 @@ class VideoViewModel{
         player = AVPlayer(playerItem: AVPlayerItem(url: url))
         setupBoundaryObserver()
         setupPeriodicObserver()
+        NotificationCenter.default.addObserver( //check when video finishes
+            forName: .AVPlayerItemDidPlayToEndTime,
+            object: player?.currentItem,
+            queue: .main
+        ) { [weak self] _ in
+            guard let self else { return }
+            self.showScoreCard = true //show card at the ending
+        }
         updateSubtitles()
     }
     
@@ -110,6 +118,7 @@ class VideoViewModel{
             ) { [weak self] in
                 self?.pause()
                 self?.isVideoPaused = true
+                self?.resetRecording()  //reset when next dialogue played
             }
         }
     
@@ -170,6 +179,13 @@ class VideoViewModel{
     
     //checks which dialogue we on at this time
     private func updateDialogueForTime(_ seconds: TimeInterval) {
+        if isVideoPaused { //if video paused
+            let atBoundary = video.dialogues.contains {
+                abs(seconds - $0.endTime) < 0.3
+            }
+            if atBoundary { return } //AND near boundary, pause subtitle
+        }
+        
         for (index, dialogue) in video.dialogues.enumerated() {
             if seconds >= dialogue.startTime && seconds < dialogue.endTime {
                 if currentDialogueIndex != index {
@@ -185,6 +201,7 @@ class VideoViewModel{
     private func updateSubtitles() {
         currentWordsIndex = 0 //reset
         clearCanvas()
+        selectedWord = nil //clear selected word when subs update
 //        showTracingGuide = false
         
         guard let dialogue = currentDialogue else { //check if dialogue exists
@@ -202,6 +219,7 @@ class VideoViewModel{
     func cleanup() {
         if let boundaryObserver { player?.removeTimeObserver(boundaryObserver) }
         if let periodicObserver { player?.removeTimeObserver(periodicObserver) }
+        NotificationCenter.default.removeObserver(self)
         player?.pause()
         player = nil
     }

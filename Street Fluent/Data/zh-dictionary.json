@@ -41,26 +41,11 @@
         "definitions": ["pizza"],
         "level": "beginner"
     },
-    
-    {
-        "id": "zh_you3",
-        "word": "有",
-        "pinyin": "yǒu",
-        "definitions": ["have", "possess", "own"],
-        "level": "beginner"
-    },
     {
         "id": "zh_yige",
         "word": "一个",
         "pinyin": "yí gè",
         "definitions": ["one", "a", "an"],
-        "level": "beginner"
-    },
-    {
-        "id": "zh_pisa",
-        "word": "披萨",
-        "pinyin": "pīsà",
-        "definitions": ["pizza"],
         "level": "beginner"
     },
     {

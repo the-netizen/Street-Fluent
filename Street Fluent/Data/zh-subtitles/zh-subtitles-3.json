@@ -75,7 +75,7 @@
         {
             "index": 9,
             "startTime": 37.0,
-            "endTime": 42.5,
+            "endTime": 42.2,
             "originalText": "还有鸡的肝脏",
             "translatedText": "And also chicken liver.",
             "wordIds": ["zh_haiyou", "zh_ji", "zh_de", "zh_ganzang"]
