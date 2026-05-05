@@ -184,7 +184,7 @@ struct FlashcardView: View {
 
 struct FlashCard: View {
     let word: BookmarkedWords
-    @State private var isFlipped = false  // front = character, back = definition
+    @State private var isFlipped = false  //flip flashcards
     
     var body: some View {
         ZStack {

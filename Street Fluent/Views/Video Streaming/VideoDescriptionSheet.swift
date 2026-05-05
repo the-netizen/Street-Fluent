@@ -94,7 +94,7 @@ struct VideoDescriptionSheet: View {
                         dismiss()
                     } label: {
                         HStack(spacing: 4) {
-                            Text("开始")
+                            Text("Start")
                                 .fontWeight(.semibold)
                             Image(systemName: "chevron.right")
                         }

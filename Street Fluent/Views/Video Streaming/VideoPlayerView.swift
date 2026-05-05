@@ -54,15 +54,15 @@ struct VideoPlayerView: View {
                     }
                 }//h
                 .frame(maxWidth: .infinity)
-                .padding(.horizontal, 8)
-                .padding(.top, 10)
+                .padding(.horizontal, 5)
+                .padding(.top, 15)
                 
                 // Translation row
             ZStack(alignment: .center) {
                 Text(viewModel.currentTranslation)
                     .font(.caption)
                     .foregroundStyle(.secondary)
-                    .lineLimit(nil)
+//                    .lineLimit(nil)
                     .padding(10)
                 
                 if let word = viewModel.selectedWord {
@@ -71,9 +71,10 @@ struct VideoPlayerView: View {
                     }
                     .id(word.id)
                     .environment(\.modelContext, modelContext)
+                    .frame(height: 50)
                 }
             }
-            .frame(height: 50)
+            .frame(height: 60)
             .padding(.top, 4)
             .padding(.bottom, 9)
             .contentShape(Rectangle())

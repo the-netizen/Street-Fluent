@@ -19,13 +19,13 @@ struct MainView: View {
                     FlashcardView()
                     
                     // FeaturedVideos
-                    FeaturedVideos()
-//                    VideoBrowsing()
+//                    FeaturedVideos()
+                    VideoBrowsing()
                     
                     Spacer()
                 }
             }
-            .background(Color(.systemBackground))
+            .background(Color(.bg).opacity(0.5))
             .toolbar{
                 ToolbarItem(placement: .topBarLeading) {
                     LanguagePickerButton(settings: settings)

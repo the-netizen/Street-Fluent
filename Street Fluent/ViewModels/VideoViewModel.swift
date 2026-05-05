@@ -379,12 +379,12 @@ class VideoViewModel{
     
     func restartVideo() { //replays from dialogue 0
         resetRecording()
-        perDialogueScores = [:]
+        perDialogueScores = [:] //reset scores
         currentDialogueIndex = 0
         updateSubtitles()
         player?.seek(to: .zero) { [weak self] _ in
             self?.play()
-        }
+        } //move player to start
     }
     
     // writing mode:

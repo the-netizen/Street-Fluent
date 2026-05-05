@@ -118,7 +118,7 @@ struct PracticeArea: View {
                     if viewModel.showTracingGuide, let word = viewModel.currentWord {
                         Text(word.word)
                             .font(.system(size: screenSize * 0.5)) //dynamic
-                            .foregroundColor(Color.primary.opacity(50))
+                            .foregroundColor(Color.gray.opacity(0.6))
                             .allowsHitTesting(false) //lets touch pass thru to canvas
                     }
                     

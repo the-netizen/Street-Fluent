@@ -33,13 +33,13 @@ struct VideoBrowsing: View {
                                 selectedVideo = video
                             }
                     }
-                }
-                .padding(.horizontal)
-            }
+                }//vgrid
+                .padding(.horizontal, 16)
+            }//v
             .padding(.vertical, 20)
         }
-//        .background(Color.bg)
-        .background(Color(.systemBackground))
+//        .background(Color(.bg).opacity(0.5))
+//        .background(Color(.systemBackground))
 //        .navigationTitle("Video Browsing")
 //        .navigationBarTitleDisplayMode(.inline)
         .sheet(item: $selectedVideo) { video in

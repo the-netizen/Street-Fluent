@@ -1,5 +1,4 @@
 import Foundation
-
 // Stores user preferences that persist across launches.
 
 @Observable

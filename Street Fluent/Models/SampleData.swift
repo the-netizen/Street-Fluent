@@ -36,7 +36,7 @@ enum SampleData {
             thumbnailURL: "Sample-image-1.png", videoURL: "Sample-video-1",
             duration: 19, language: .chinese, level: .beginner,
             dialogues: SubtitleLoader.loadDialogues(for: "zh-subtitles-1"),
-            isFeatured: false, dateAdded: Date()
+            isFeatured: true, dateAdded: Date()
         ),
         
         // === HSK 2 / Elementary ===

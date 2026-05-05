@@ -2,7 +2,7 @@ import Foundation
 
 enum TargetLanguage: String, Identifiable, CaseIterable, Codable{
     
-    var id: String {rawValue}  // uses rawValues "zh" "beginner' for identity
+    var id: String {rawValue}  // uses rawValues "zh" for identity
     
     case chinese = "zh"
     case english = "en"

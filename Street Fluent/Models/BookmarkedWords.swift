@@ -27,9 +27,9 @@ class BookmarkedWords {
     }
     
     enum MasteryLevel: Int, Codable{ //int so we can compare 0 < 1 < 2
-        case new = 0      // not reviewed - repeat in 1/3 days
-        case learning = 1 // reviewed - repeat in 1/7 days
-        case known = 2    // learnt - repeat in 1/14 days
+        case new = 0      // not reviewed - repeat in 1/3
+        case learning = 1 // reviewed - repeat in 1/7
+        case known = 2    // learnt - repeat in 1/14 
     }
     
     func markKnown() {
